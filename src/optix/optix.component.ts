@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  selector: 'optix-root',
+  templateUrl: './optix.component.html',
+  styleUrls: ['./optix.component.sass']
 })
 export class AppComponent {
   title = 'optixwebserver';

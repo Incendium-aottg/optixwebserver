@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { WorldRecordsComponent } from './world-records/world-records.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthorsComponent } from './authors/authors.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SidebarComponent,
     HomeComponent,
     WorldRecordsComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    AuthorsComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    NgbModalModule,
     OptixRoutingModule
   ],
   providers: [],

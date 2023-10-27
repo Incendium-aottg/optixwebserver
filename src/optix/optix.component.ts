@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './optix.component.html',
   styleUrls: ['./optix.component.sass']
 })
-export class AppComponent {
+export class OptixComponent {
   title = 'optixwebserver';
 }

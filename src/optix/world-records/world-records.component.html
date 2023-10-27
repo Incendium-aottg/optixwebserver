@@ -1,6 +1,54 @@
-<div class="logo-area">
-	<div>
-		<img src="../../assets/Optix.svg" alt="Optix" class="logo" />
-		<h1 class="coming-soon">World Records Coming Soon</h1>
+<div class="container">
+	<div class="row title-bar">
+		<h1 class="col-sm">World Records</h1>
+		<div class="col-md">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Search by Map/Author">
+				<button class="btn btn-primary" type="button">
+					<fa-icon [icon]="faPlay"></fa-icon>
+				</button>
+			</div>
+		</div>
 	</div>
+	<table class="world-records table table-dark">
+		<thead>
+		  <tr>
+			<th scope="col">Author</th>
+			<th scope="col">Map Name</th>
+			<th scope="col">First</th>
+			<th scope="col">Second</th>
+			<th scope="col">Third</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr>
+			<th scope="row">Absolute</th>
+			<td>Pace</td>
+			<td>Hedin - 32.13</td>
+			<td></td>
+			<td></td>
+		  </tr>
+		  <tr>
+			<th scope="row">Alpi</th>
+			<td>Galactic Hell</td>
+			<td>Alpi - 67.08</td>
+			<td>Rayzu - 88.82</td>
+			<td>XII - 104.21</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Appolina</th>
+			<td>ELOR 1 "Play"</td>
+			<td>Hedin - 68.5</td>
+			<td>SC - 73.69</td>
+			<td>Zender - 79.45</td>
+		  </tr>
+		  <tr>
+			<th scope="row">Appolina</th>
+			<td>ELOR 2 "Candy Land"</td>
+			<td>Hedin - 44.19</td>
+			<td>Keno - 54.30</td>
+			<td>Hanamichi - 59.24</td>
+		  </tr>
+		</tbody>
+	</table>
 </div>

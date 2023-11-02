@@ -1,0 +1,58 @@
+.title-bar
+	margin-top: 70px
+
+	h1
+		font-size: 50px
+		font-weight: normal
+
+.author-panel
+	margin-top: 15px
+
+	.author
+		color: #ffff00
+		display: inline-block
+		text-decoration: none
+		font-size: 28px
+		font-weight: bold
+		width: 100%
+		&:hover
+			text-decoration: underline
+		&[aria-expanded="true"]
+			.arrow-icon
+				transform: rotate(90deg)
+		.arrow-icon
+			color: #c0c0c0
+			display: inline-block
+			margin-right: 10px
+			-webkit-transition: all 0.1s linear
+
+	.map-list
+		padding-bottom: 5px
+		transition: 0.15s
+
+		.map
+			color: #0094ff
+			display: inline-block
+			text-decoration: none
+			font-size: 24px
+			font-weight: bold
+			padding-left: 30px
+			width: 100%
+			.copy-container
+				display: inline-block
+				width: 500px
+
+				.copy
+					display: inline
+					&:hover
+						cursor: pointer
+						text-decoration: underline
+
+			.download
+				display: inline
+				&:hover
+					cursor: pointer
+					text-decoration: underline
+
+			.map-button
+					margin: 0 10px

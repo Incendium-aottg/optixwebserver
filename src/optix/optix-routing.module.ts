@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'authors', pathMatch: 'full', component: AuthorsComponent },
   { path: 'scoreboard', pathMatch: 'full', component: ScoreboardComponent },
   { path: 'worldrecords', pathMatch: 'full', component: WorldRecordsComponent },
+  { path: '404', pathMatch: 'full',  component: NotFoundComponent }, 
   { path: '**', pathMatch: 'full',  component: NotFoundComponent }, 
 ];
 

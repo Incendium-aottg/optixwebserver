@@ -8,7 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { WorldRecordsComponent } from './world-records/world-records.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AuthorsComponent } from './authors/authors.component';
+import { MapsComponent } from './maps/maps.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -19,7 +19,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     WorldRecordsComponent,
     ScoreboardComponent,
-    AuthorsComponent,
+    MapsComponent,
     NotFoundComponent
   ],
   imports: [

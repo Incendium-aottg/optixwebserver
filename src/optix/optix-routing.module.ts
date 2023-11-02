@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'scoreboard', pathMatch: 'full', component: ScoreboardComponent },
   { path: 'worldrecords', pathMatch: 'full', component: WorldRecordsComponent },
   { path: '404', pathMatch: 'full',  component: NotFoundComponent }, 
-  { path: '**', redirectTo: '/404'}
+  { path: '**', pathMatch: 'full', redirectTo: '/404'}
 ];
 
 @NgModule({

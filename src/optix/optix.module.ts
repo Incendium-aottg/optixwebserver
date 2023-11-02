@@ -10,6 +10,7 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthorsComponent } from './authors/authors.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     WorldRecordsComponent,
     ScoreboardComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

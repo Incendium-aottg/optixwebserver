@@ -15,48 +15,112 @@
 			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>Absolute
 		</a>
 		<div class="collapse map-list" id="collapse1">
-			<a class="map" href="https://pastebin.com/raw/1enz2RTZ">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Pace
-			</a>
+			<div class="map" id="pace">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Pace
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
 		</div>
 		<a class="author" data-bs-toggle="collapse" href="#collapse2">
 			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>Alpi
 		</a>
 		<div class="collapse map-list" id="collapse2">
-			<a class="map" href="https://pastebin.com/raw/jwyAHnYJ">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Galactic Hell
-			</a>
+			<div class="map" id="galactichell">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Galactic Hell
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
 		</div>
 		<a class="author" data-bs-toggle="collapse" href="#collapse3">
 			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>AndyXest
 		</a>
 		<div class="collapse map-list" id="collapse3">
-			<a class="map" href="https://pastebin.com/raw/1fY7QEsf">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Attack on the Village
-			</a>
-			<a class="map" href="https://pastebin.com/raw/bVnv7pxA">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Celestial Statue
-			</a>
-			<a class="map" href="https://pastebin.com/raw/LEtuydSi">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Collapse of the Arenas
-			</a>
-			<a class="map" href="https://pastebin.com/raw/PHq7eny8">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Collapse of the Arenas [Lava]
-			</a>
-			<a class="map" href="https://pastebin.com/raw/LkFS2CS1">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Devil's Corridor [Safe Walls]
-			</a>
-			<a class="map" href="https://pastebin.com/raw/MKkmBJhQ">
-				<fa-icon [icon]="faDownload"></fa-icon>
-				Devil's Corridor [Lava]
-			</a>
+			<div class="map" id="attackonthevillage">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Attack on the Village
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
+			<div class="map" id="celestialstatue">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Celestial Statue
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
+			<div class="map" id="collapseofthearenas">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Collapse of the Arenas
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
+			<div class="map" id="collapseofthearenaslava">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Collapse of the Arenas [Lava]
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
+			<div class="map" id="devilscorridor">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Devil's Corridor [Safe Walls]
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
+			<div class="map" id="devilscorridorlava">
+				<div class="copy-container">
+					<div class="copy" (click)="copyMapScript($event.srcElement)">
+						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+						Devil's Corridor [Lava]
+					</div>
+				</div>
+				<div class="download" (click)="downloadMapScript($event.srcElement)">
+					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+					Download
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -12,8 +12,8 @@ const routes: Routes = [
   { path: 'scoreboard', pathMatch: 'full', component: ScoreboardComponent },
   { path: 'worldrecords', pathMatch: 'full', component: WorldRecordsComponent },
   { path: '404', pathMatch: 'full',  component: NotFoundComponent }, 
-  { path: 'worldrecords/404', pathMatch: 'full', component: ScoreboardComponent },
-  //{ path: 'worldrecords/404', pathMatch: 'full', redirectTo: '/maps'},
+  //{ path: 'worldrecords/404', pathMatch: 'full', component: ScoreboardComponent },
+  { path: 'worldrecords/404', pathMatch: 'full', redirectTo: '/maps'},
   { path: '**', pathMatch: 'full', redirectTo: '/404'}
 ];
 

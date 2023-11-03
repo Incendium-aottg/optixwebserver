@@ -1,6 +1,8 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
 import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { Author } from '../models/author.model';
+import { MapScript } from '../models/map-script.model';
 import { MapService } from '../services/map.service';
 
 @Component({
@@ -13,9 +15,15 @@ export class MapsComponent {
 	faCopy = faCopy;
 	faDownload = faDownload;
 	faPlay = faPlay;
+	mapList : Author[] = [];
 
 	constructor(private clipboard: Clipboard, private mapService: MapService) {
-		mapService.getMapsByAuthor()
+		mapService.getMapsByAuthor().subscribe(
+			(maps) => {
+				this.mapList = maps
+				console.log(maps)
+			}
+		)
 	}
 
 	copyMapScript(dom: any) {
@@ -24,5 +32,13 @@ export class MapsComponent {
 
 	downloadMapScript(dom: any) {
 		alert(dom.parentElement.id);
+	}
+
+	getMapSubtitle(map: MapScript) {
+		return  map.MapSubtitle ?`[${map.MapSubtitle}]` : ''
+	}
+
+	normalizeName(name: string) {
+		return name.replace(' ', '');
 	}
 }

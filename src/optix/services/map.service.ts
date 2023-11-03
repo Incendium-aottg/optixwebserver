@@ -1,5 +1,7 @@
 import { HttpClient } from  '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Author } from '../models/author.model';
 
 @Injectable({
 	providedIn: 'root'
@@ -9,9 +11,7 @@ export class MapService {
 	constructor(private http: HttpClient) {
 	}
 
-	getMapsByAuthor() {
-		this.http.get("api/maps").subscribe(
-			(res) => console.log(res)
-		)
+	getMapsByAuthor(): Observable<Author[]> {
+		return this.http.get<Author[]>("https://www.aottgracing.com/api/maps")
 	}
 }

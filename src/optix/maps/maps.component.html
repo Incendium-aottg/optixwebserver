@@ -11,114 +11,26 @@
 		</div>
 	</div>
 	<div class="author-panel">
-		<a class="author" data-bs-toggle="collapse" href="#collapse1">
-			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>Absolute
-		</a>
-		<div class="collapse map-list" id="collapse1">
-			<div class="map" id="pace">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Pace
+		<div *ngFor="let author of mapList">
+			<a class="author" data-bs-toggle="collapse" [href]="'#' + normalizeName(author.authorName)">
+				<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>{{author.authorName}}
+			</a>
+			<div class="collapse map-list" [id]="normalizeName(author.authorName)">
+				<div *ngFor="let map of author.maps" [id]="map.Name">
+					<div class="map-links">
+						<div class="copy" (click)="copyMapScript($event.srcElement)">
+							<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+							<div>
+								{{map.Name}}
+								<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
+							</div>
+						</div>
+						<div class="download" (click)="downloadMapScript($event.srcElement)">
+							<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+							Download
+						</div>
 					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-		</div>
-		<a class="author" data-bs-toggle="collapse" href="#collapse2">
-			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>Alpi
-		</a>
-		<div class="collapse map-list" id="collapse2">
-			<div class="map" id="galactichell">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Galactic Hell
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-		</div>
-		<a class="author" data-bs-toggle="collapse" href="#collapse3">
-			<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>AndyXest
-		</a>
-		<div class="collapse map-list" id="collapse3">
-			<div class="map" id="attackonthevillage">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Attack on the Village
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-			<div class="map" id="celestialstatue">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Celestial Statue
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-			<div class="map" id="collapseofthearenas">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Collapse of the Arenas
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-			<div class="map" id="collapseofthearenaslava">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Collapse of the Arenas [Lava]
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-			<div class="map" id="devilscorridor">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Devil's Corridor [Safe Walls]
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
-				</div>
-			</div>
-			<div class="map" id="devilscorridorlava">
-				<div class="copy-container">
-					<div class="copy" (click)="copyMapScript($event.srcElement)">
-						<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-						Devil's Corridor [Lava]
-					</div>
-				</div>
-				<div class="download" (click)="downloadMapScript($event.srcElement)">
-					<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-					Download
+					<p class="notes">{{map.Notes}}</p>
 				</div>
 			</div>
 		</div>

@@ -12,7 +12,7 @@
 		color: #ffff00
 		display: inline-block
 		text-decoration: none
-		font-size: 28px
+		font-size: 26px
 		font-weight: bold
 		width: 100%
 		&:hover
@@ -27,32 +27,42 @@
 			-webkit-transition: all 0.1s linear
 
 	.map-list
+		max-width: 900px
 		padding-bottom: 5px
 		transition: 0.15s
 
-		.map
+		.map-links
 			color: #0094ff
-			display: inline-block
+			display: flex
+			justify-content: space-between
 			text-decoration: none
-			font-size: 24px
+			font-size: 22px
 			font-weight: bold
 			padding-left: 30px
 			width: 100%
-			.copy-container
-				display: inline-block
-				width: 500px
 
-				.copy
+			.copy
+				display: flex
+				&:hover
+					cursor: pointer
+					text-decoration: underline
+
+				.map-subtitle
+					color: #59bcff
 					display: inline
-					&:hover
-						cursor: pointer
-						text-decoration: underline
 
 			.download
-				display: inline
+				flex-shrink: 0
 				&:hover
 					cursor: pointer
 					text-decoration: underline
 
 			.map-button
 					margin: 0 10px
+
+		.notes
+			color: #bbbbbb
+			font-size: 16px
+			font-style: italic
+			margin: 0
+			padding-left: 40px

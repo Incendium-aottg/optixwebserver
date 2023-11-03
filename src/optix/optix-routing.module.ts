@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'maps', pathMatch: 'full', component: MapsComponent },
   { path: 'scoreboard', pathMatch: 'full', component: ScoreboardComponent },
   { path: 'worldrecords', pathMatch: 'full', component: WorldRecordsComponent },
-  { path: '404', pathMatch: 'full',  component: NotFoundComponent }, 
+  { path: '404', pathMatch: 'full',  component: NotFoundComponent },
   { path: '**', pathMatch: 'full', redirectTo: '/404'}
 ];
 

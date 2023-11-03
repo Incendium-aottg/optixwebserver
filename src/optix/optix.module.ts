@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MapsComponent } from './maps/maps.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    HttpClientModule,
     NgbModalModule,
     OptixRoutingModule
   ],

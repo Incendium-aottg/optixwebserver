@@ -1,3 +1,4 @@
+import { HttpClient } from  '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,10 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class MapService {
 
-	constructor() {
+	constructor(private http: HttpClient) {
 	}
 
 	getMapsByAuthor() {
-		//return this.http.get<Config>(this.configUrl);
+		this.http.get("api/maps").subscribe(
+			(res) => console.log(res)
+		)
 	}
 }

@@ -18,7 +18,7 @@ export class MapsComponent {
 	mapList : Author[] = [];
 
 	constructor(private clipboard: Clipboard, private mapService: MapService) {
-		mapService.getMapsByAuthor().subscribe((maps) => this.mapList = maps)
+		mapService.getMapsByAuthor().subscribe((maps) => {this.mapList = maps; console.log(maps)})
 	}
 
 	copyMapScript(dom: any) {

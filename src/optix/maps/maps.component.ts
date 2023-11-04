@@ -39,16 +39,17 @@ export class MapsComponent {
 			this.filteredMapList = this.fullMapList
 		} else {
 			this.filteredMapList = []
+			const normalizedSearchString = this.searchString.trim().toLowerCase()
 			this.fullMapList.forEach((author) => {
-				if(author.authorName.includes(this.searchString)) {
+				if(author.authorName.toLowerCase().includes(normalizedSearchString)) {
 					this.filteredMapList.push(author)
 				} else {
 					var filteredMaps: MapScript[] = []
 					author.maps.forEach((nextMap) => {
 						if(
-							nextMap.FileName.includes(this.searchString) || 
-							nextMap.Name.includes(this.searchString) || 
-							nextMap.MapSubtitle.includes(this.searchString)
+							nextMap.FileName.toLowerCase().includes(normalizedSearchString) || 
+							nextMap.Name.toLowerCase().includes(normalizedSearchString) || 
+							nextMap.MapSubtitle.toLowerCase().includes(normalizedSearchString)
 						) {
 							filteredMaps.push(nextMap)
 						}

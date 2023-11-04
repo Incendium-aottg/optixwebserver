@@ -14,7 +14,6 @@
 		text-decoration: none
 		font-size: 26px
 		font-weight: bold
-		width: 100%
 		&:hover
 			text-decoration: underline
 		&[aria-expanded="true"]
@@ -26,43 +25,63 @@
 			margin-right: 10px
 			-webkit-transition: all 0.1s linear
 
-	.map-list
+	.map-section
 		max-width: 900px
 		padding-bottom: 5px
+		position: relative
 		transition: 0.15s
 
-		.map-links
-			color: #0094ff
-			display: flex
-			justify-content: space-between
-			text-decoration: none
-			font-size: 22px
-			font-weight: bold
-			padding-left: 30px
-			width: 100%
+		.collapsible
+			bottom: 0
+			height: 100%
+			left: -4px
+			padding: 6px 1px 6px 0
+			position: absolute
+			top: 0
+			width: 26px
 
-			.copy
+			.line
+				background-color: #c0c0c0
+				border-radius: 3px
+				height: 100%
+				margin: 0 auto
+				width: 3px
+
+		.map-list
+			margin-left: 30px
+			padding-top: 2px
+
+			.map-links
+				color: #0094ff
 				display: flex
-				&:hover
-					cursor: pointer
-					text-decoration: underline
+				justify-content: space-between
+				text-decoration: none
+				font-size: 22px
+				font-weight: bold
+				width: 100%
 
-				.map-subtitle
-					color: #59bcff
-					display: inline
+				.copy
+					display: flex
+					&:hover
+						cursor: pointer
+						text-decoration: underline
 
-			.download
-				flex-shrink: 0
-				&:hover
-					cursor: pointer
-					text-decoration: underline
+					.map-subtitle
+						color: #59bcff
+						display: inline
 
-			.map-button
-					margin: 0 10px
+				.download
+					flex-shrink: 0
+					&:hover
+						cursor: pointer
+						text-decoration: underline
 
-		.notes
-			color: #bbbbbb
-			font-size: 16px
-			font-style: italic
-			margin: 0
-			padding-left: 40px
+				.map-button
+						margin: 0 10px
+
+			.notes
+				color: #bbbbbb
+				font-size: 16px
+				font-style: italic
+				margin: 0
+				padding-left: 40px

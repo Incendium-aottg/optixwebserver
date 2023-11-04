@@ -15,22 +15,27 @@
 			<a class="author" data-bs-toggle="collapse" [href]="'#' + normalizeName(author.authorName)">
 				<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>{{author.authorName}}
 			</a>
-			<div class="collapse map-list" [id]="normalizeName(author.authorName)">
-				<div *ngFor="let map of author.maps" [id]="map.Name">
-					<div class="map-links">
-						<div class="copy" (click)="copyMapScript($event.srcElement)">
-							<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
-							<div>
-								{{map.Name}}
-								<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
+			<div class="collapse map-section" [id]="normalizeName(author.authorName)">
+				<a class="collapsible" data-bs-toggle="collapse" [href]="'#' + normalizeName(author.authorName)">
+					<div class="line"></div>
+				</a>
+				<div class="map-list">
+					<div *ngFor="let map of author.maps" [id]="map.Name">
+						<div class="map-links">
+							<div class="copy" (click)="copyMapScript($event.srcElement)">
+								<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+								<div>
+									{{map.Name}}
+									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
+								</div>
+							</div>
+							<div class="download" (click)="downloadMapScript($event.srcElement)">
+								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+								Download
 							</div>
 						</div>
-						<div class="download" (click)="downloadMapScript($event.srcElement)">
-							<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-							Download
-						</div>
+						<p class="notes">{{map.Notes}}</p>
 					</div>
-					<p class="notes">{{map.Notes}}</p>
 				</div>
 			</div>
 		</div>

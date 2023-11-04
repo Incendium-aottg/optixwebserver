@@ -18,12 +18,7 @@ export class MapsComponent {
 	mapList : Author[] = [];
 
 	constructor(private clipboard: Clipboard, private mapService: MapService) {
-		mapService.getMapsByAuthor().subscribe(
-			(maps) => {
-				this.mapList = maps
-				console.log(maps)
-			}
-		)
+		mapService.getMapsByAuthor().subscribe((maps) => this.mapList = maps)
 	}
 
 	copyMapScript(dom: any) {
@@ -35,7 +30,7 @@ export class MapsComponent {
 	}
 
 	getMapSubtitle(map: MapScript) {
-		return  map.MapSubtitle ?`[${map.MapSubtitle}]` : ''
+		return map.MapSubtitle ?`[${map.MapSubtitle}]` : ''
 	}
 
 	normalizeName(name: string) {

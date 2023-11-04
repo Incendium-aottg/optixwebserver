@@ -3,15 +3,15 @@
 		<h1 class="col-sm">Maps</h1>
 		<div class="col-md">
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Search">
-				<button class="btn btn-primary" type="button">
+				<input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString" (keyup.enter)="filterMaps()">
+				<button class="btn btn-primary" type="button" (click)="filterMaps()">
 					<fa-icon [icon]="faPlay"></fa-icon>
 				</button>
 			</div>
 		</div>
 	</div>
 	<div class="author-panel">
-		<div *ngFor="let author of mapList">
+		<div *ngFor="let author of filteredMapList">
 			<a class="author" data-bs-toggle="collapse" [href]="'#' + normalizeName(author.authorName)">
 				<fa-icon [icon]="faChevronRight" class="arrow-icon"></fa-icon>{{author.authorName}}
 			</a>
@@ -22,17 +22,17 @@
 				<div class="map-list">
 					<div *ngFor="let map of author.maps" [id]="map.Name">
 						<div class="map-links">
-							<div class="copy" (click)="copyMapScript($event.srcElement)">
+							<div class="copy" (click)="copyMapScript(map.FileName)">
 								<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
 								<div>
 									{{map.Name}}
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
 							</div>
-							<div class="download" (click)="downloadMapScript($event.srcElement)">
+							<a class="download" target="_blank" [href]="getDownloadLink(map.FileName)" [download]="getDownloadFileName(map.FileName)">
 								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 								Download
-							</div>
+							</a>
 						</div>
 						<p class="notes">{{map.Notes}}</p>
 					</div>

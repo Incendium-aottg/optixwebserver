@@ -14,4 +14,8 @@ export class MapService {
 	getMapsByAuthor(): Observable<Author[]> {
 		return this.http.get<Author[]>("https://www.aottgracing.com/api/maps")
 	}
+
+	getMapScript(fileName: string): Observable<any> {
+		return this.http.get(`../../assets/mapscripts/${fileName}.txt`, { responseType: 'text' })
+	}
 }

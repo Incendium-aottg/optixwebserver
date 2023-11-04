@@ -12,6 +12,9 @@ import { MapsComponent } from './maps/maps.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +27,17 @@ import { HttpClientModule } from '@angular/common/http';
     NotFoundComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FontAwesomeModule,
+    FormsModule,
     HttpClientModule,
     NgbModalModule,
-    OptixRoutingModule
+    OptixRoutingModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    })
   ],
   providers: [],
   bootstrap: [OptixComponent]

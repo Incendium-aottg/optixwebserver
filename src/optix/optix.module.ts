@@ -35,9 +35,10 @@ import { FormsModule } from '@angular/forms';
     NgbModalModule,
     OptixRoutingModule,
     ToastrModule.forRoot({
+      timeOut: 1500000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
-    })
+    }),
   ],
   providers: [],
   bootstrap: [OptixComponent]

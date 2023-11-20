@@ -21,15 +21,15 @@
 				</a>
 				<div class="map-list">
 					<div *ngFor="let map of author.maps" [id]="map.Name">
-						<div class="map-links">
-							<div class="copy" (click)="copyMapScript(map.FileName)">
+						<div class="map-links" [ngClass]="{'no-links': !map.FileName}">
+							<div [ngClass]="map.FileName ? 'copy' : 'no-copy'" (click)="map.FileName ? copyMapScript(map.FileName) : null">
 								<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
 								<div>
 									{{map.Name}}
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
 							</div>
-							<a class="download" target="_blank" [href]="getDownloadLink(map.FileName)" [download]="getDownloadFileName(map.FileName)">
+							<a [ngClass]="map.FileName ? 'download' : 'no-download'" target="_blank" [attr.href]="map.FileName ? getDownloadLink(map.FileName) : null" [download]="getDownloadFileName(map.FileName)">
 								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 								Download
 							</a>

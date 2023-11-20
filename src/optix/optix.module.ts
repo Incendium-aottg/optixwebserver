@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { BotRecordsComponent } from './bot-records/bot-records.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     WorldRecordsComponent,
     ScoreboardComponent,
     MapsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BotRecordsComponent
   ],
   imports: [
     BrowserAnimationsModule,

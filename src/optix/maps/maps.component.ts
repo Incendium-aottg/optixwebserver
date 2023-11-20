@@ -47,9 +47,9 @@ export class MapsComponent {
 					var filteredMaps: MapScript[] = []
 					author.maps.forEach((nextMap) => {
 						if(
-							nextMap.FileName.toLowerCase().includes(normalizedSearchString) || 
 							nextMap.Name.toLowerCase().includes(normalizedSearchString) || 
-							nextMap.MapSubtitle.toLowerCase().includes(normalizedSearchString)
+							nextMap.MapSubtitle.toLowerCase().includes(normalizedSearchString) ||
+							nextMap.AltNames.some((name) => name.toLocaleLowerCase().includes(normalizedSearchString))
 						) {
 							filteredMaps.push(nextMap)
 						}

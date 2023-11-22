@@ -13,22 +13,47 @@ export class WorldRecordsComponent {
 	faPlay = faPlay;
 	full_records_list: RecordRow[] = [];
 	filtered_records_list: RecordRow[] = [];
+	searchString: string = "";
 
-	constructor(private cdf: ChangeDetectorRef, private recordService: RecordsService) {
+	constructor(private recordService: RecordsService) {
 		recordService.getTopWorldRecords().subscribe((all_records) => {
 			// Unpack the records
+			let isEven = true
 			all_records.forEach((authorRecords) => {
 				authorRecords.maps.forEach((mapRecords) => {
 					this.full_records_list.push({
+						altNames: mapRecords.altNames,
 						author: authorRecords.author,
+						isEven: isEven,
 						map: mapRecords.map,
 						records: mapRecords.records,
 					})
 				})
+				isEven = !isEven
 			})
 			this.filtered_records_list = this.full_records_list
-			cdf.detectChanges()
 		})
+	}
+
+
+	filterRecords() {
+		if (this.searchString.trim() == "") {
+			this.filtered_records_list = this.full_records_list
+		} else {
+			this.filtered_records_list = []
+			const normalizedSearchString = this.searchString.trim().toLowerCase()
+			this.full_records_list.forEach((record) => {
+				if (record.author.toLowerCase().includes(normalizedSearchString) || 
+					record.records[0]?.player.toLowerCase().includes(normalizedSearchString) ||
+					record.records[1]?.player.toLowerCase().includes(normalizedSearchString) ||
+					record.records[2]?.player.toLowerCase().includes(normalizedSearchString) ||
+					record.map.toLowerCase().includes(normalizedSearchString) || 
+					record.altNames.some((name) => name.toLowerCase().includes(normalizedSearchString))
+				) {
+					this.filtered_records_list.push(record)
+				}
+			})
+		}
 	}
 
 	getRecordText(record: Record) {

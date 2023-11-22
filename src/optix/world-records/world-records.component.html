@@ -3,8 +3,8 @@
 		<h1 class="col-sm">World Records</h1>
 		<div class="col-md">
 			<div class="input-group mb-3">
-				<input type="text" class="form-control" placeholder="Search by Map/Author">
-				<button class="btn btn-primary" type="button">
+				<input type="text" class="form-control" placeholder="Search by Map/Author" [(ngModel)]="searchString" (keyup.enter)="filterRecords()">
+				<button class="btn btn-primary" type="button" (click)="filterRecords()">
 					<fa-icon [icon]="faPlay"></fa-icon>
 				</button>
 			</div>
@@ -12,21 +12,36 @@
 	</div>
 	<table class="world-records table table-dark">
 		<thead>
-		  	<tr>
-				<th scope="col">Author</th>
-				<th scope="col">Map Name</th>
-				<th scope="col">First</th>
-				<th scope="col">Second</th>
-				<th scope="col">Third</th>
+		  	<tr class="center">
+				<th scope="col" class="header">Author</th>
+				<th scope="col" class="header">Map Name</th>
+				<th scope="col" colspan="2" class="first-header shadow">First</th>
+				<th scope="col" colspan="2" class="second-header shadow">Second</th>
+				<th scope="col" colspan="2" class="third-header shadow">Third</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let recordRow of filtered_records_list">
-				<th scope="row">{{recordRow.author}}</th>
-				<td>{{recordRow.map}}</td>
-				<td>{{getRecordText(recordRow.records[0])}}</td>
-				<td>{{getRecordText(recordRow.records[1])}}</td>
-				<td>{{getRecordText(recordRow.records[2])}}</td>
+			<tr *ngFor="let recordRow of filtered_records_list" class="record-rows">
+				<th scope="row" class="center" class="author-column">{{recordRow.author}}</th>
+				<td [ngClass]="{'even-row': recordRow.isEven}">{{recordRow.map}}</td>
+				<td class="center first-row shadow">{{recordRow.records[0]?.player}}</td>
+				<td class="center first-row shadow">
+					<a *ngIf="recordRow.records[0]" [attr.href]="recordRow.records[0].verification" target="_blank">
+						{{recordRow.records[0].time}}
+					</a>
+				</td>
+				<td class="center second-row shadow">{{recordRow.records[1]?.player}}</td>
+				<td class="center second-row shadow">
+					<a *ngIf="recordRow.records[1]" [attr.href]="recordRow.records[1].verification" target="_blank">
+						{{recordRow.records[1].time}}
+					</a>
+				</td>
+				<td class="center third-row shadow">{{recordRow.records[2]?.player}}</td>
+				<td class="center third-row shadow">
+					<a *ngIf="recordRow.records[2]" [attr.href]="recordRow.records[2].verification" target="_blank">
+						{{recordRow.records[2].time}}
+					</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

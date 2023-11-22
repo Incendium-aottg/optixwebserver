@@ -42,6 +42,8 @@ export class WorldRecordsComponent {
 		} else {
 			this.filtered_records_list = []
 			const normalizedSearchString = this.searchString.trim().toLowerCase()
+			let isEven = false
+			let current_author = ''
 			this.full_records_list.forEach((record) => {
 				if (record.author.toLowerCase().includes(normalizedSearchString) || 
 					record.records[0]?.player.toLowerCase().includes(normalizedSearchString) ||
@@ -50,6 +52,11 @@ export class WorldRecordsComponent {
 					record.map.toLowerCase().includes(normalizedSearchString) || 
 					record.altNames.some((name) => name.toLowerCase().includes(normalizedSearchString))
 				) {
+					if (current_author != record.author) {
+						current_author = record.author
+						isEven = !isEven
+					}
+					record.isEven = isEven
 					this.filtered_records_list.push(record)
 				}
 			})

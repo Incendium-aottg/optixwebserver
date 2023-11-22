@@ -12,43 +12,22 @@
 	</div>
 	<table class="world-records table table-dark">
 		<thead>
-		  <tr>
-			<th scope="col">Author</th>
-			<th scope="col">Map Name</th>
-			<th scope="col">First</th>
-			<th scope="col">Second</th>
-			<th scope="col">Third</th>
-		  </tr>
+		  	<tr>
+				<th scope="col">Author</th>
+				<th scope="col">Map Name</th>
+				<th scope="col">First</th>
+				<th scope="col">Second</th>
+				<th scope="col">Third</th>
+			</tr>
 		</thead>
 		<tbody>
-		  <tr>
-			<th scope="row">Absolute</th>
-			<td>Pace</td>
-			<td>Hedin - 32.13</td>
-			<td></td>
-			<td></td>
-		  </tr>
-		  <tr>
-			<th scope="row">Alpi</th>
-			<td>Galactic Hell</td>
-			<td>Alpi - 67.08</td>
-			<td>Rayzu - 88.82</td>
-			<td>XII - 104.21</td>
-		  </tr>
-		  <tr>
-			<th scope="row">Appolina</th>
-			<td>ELOR 1 "Play"</td>
-			<td>Hedin - 68.5</td>
-			<td>SC - 73.69</td>
-			<td>Zender - 79.45</td>
-		  </tr>
-		  <tr>
-			<th scope="row">Appolina</th>
-			<td>ELOR 2 "Candy Land"</td>
-			<td>Hedin - 44.19</td>
-			<td>Keno - 54.30</td>
-			<td>Hanamichi - 59.24</td>
-		  </tr>
+			<tr *ngFor="let recordRow of filtered_records_list">
+				<th scope="row">{{recordRow.author}}</th>
+				<td>{{recordRow.map}}</td>
+				<td>{{getRecordText(recordRow.records[0])}}</td>
+				<td>{{getRecordText(recordRow.records[1])}}</td>
+				<td>{{getRecordText(recordRow.records[2])}}</td>
+			</tr>
 		</tbody>
 	</table>
 </div>

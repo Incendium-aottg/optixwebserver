@@ -4,7 +4,7 @@ import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-so
 import { ToastrService } from 'ngx-toastr';
 import { Author } from '../models/author.model';
 import { MapScript } from '../models/map-script.model';
-import { MapService } from '../services/map.service';
+import { MapService } from '../services/map-service/map.service';
 
 @Component({
 	selector: 'app-maps',
@@ -16,9 +16,9 @@ export class MapsComponent {
 	faCopy = faCopy;
 	faDownload = faDownload;
 	faPlay = faPlay;
-	fullMapList : Author[] = [];
-	filteredMapList : Author[] = [];
-	searchString : string = "";
+	fullMapList: Author[] = [];
+	filteredMapList: Author[] = [];
+	searchString: string = "";
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
 		mapService.getMapsByAuthor().subscribe((maps) => {

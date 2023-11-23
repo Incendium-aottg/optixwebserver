@@ -9,6 +9,7 @@ import { RecordsService } from '../services/records-service/records.service';
 })
 export class ScoreboardComponent {
 
+	medals = ['gold', 'silver', 'bronze'];
 	gold_records: PlayerRecordsCount[] = [];
 	silver_records: PlayerRecordsCount[] = [];
 	bronze_records: PlayerRecordsCount[] = [];
@@ -32,5 +33,16 @@ export class ScoreboardComponent {
 				.filter((record) => record.recordCount[2] !== 0)
 				.sort((a, b) => a.recordCount[2] > b.recordCount[2] ? -1 : 1)
 		})
+	}
+
+	getScoreboardClass(medal: number, playerRecords: PlayerRecordsCount, allRecords: PlayerRecordsCount[]) {
+		if (playerRecords.recordCount[medal] === allRecords[0].recordCount[medal]) {
+			return `first-${this.medals[medal]}-row`
+		} else if (playerRecords.recordCount[medal] === allRecords[1].recordCount[medal]) {
+			return `second-${this.medals[medal]}-row`
+		} else if (playerRecords.recordCount[medal] === allRecords[2].recordCount[medal]) {
+			return `third-${this.medals[medal]}-row`
+		}
+		return ''
 	}
 }

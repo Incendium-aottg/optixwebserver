@@ -17,7 +17,7 @@
 							<th scope="row" class="center player-column">
 								{{player.player}}
 							</th>
-							<td class="center shadow" [ngClass]="{'first-gold-row': i === 0, 'second-gold-row': i === 1, 'third-gold-row': i === 2}">
+							<td class="center shadow" [ngClass]="getScoreboardClass(0, player, gold_records)">
 								{{player.recordCount[0]}}
 							</td>
 						</tr>
@@ -39,7 +39,7 @@
 							<th scope="row" class="center player-column">
 								{{player.player}}
 							</th>
-							<td class="center shadow" [ngClass]="{'first-silver-row': i === 0, 'second-silver-row': i === 1, 'third-silver-row': i === 2}">
+							<td class="center shadow" [ngClass]="getScoreboardClass(1, player, silver_records)">
 								{{player.recordCount[1]}}
 							</td>
 						</tr>
@@ -61,7 +61,7 @@
 							<th scope="row" class="center player-column">
 								{{player.player}}
 							</th>
-							<td class="center shadow" [ngClass]="{'first-bronze-row': i === 0, 'second-bronze-row': i === 1, 'third-bronze-row': i === 2}">
+							<td class="center shadow" [ngClass]="getScoreboardClass(2, player, bronze_records)">
 								{{player.recordCount[2]}}
 							</td>
 						</tr>

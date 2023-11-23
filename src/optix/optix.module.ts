@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { OptixRoutingModule } from './optix-routing.module';
 import { OptixComponent } from './optix.component';
@@ -26,7 +27,7 @@ import { BotRecordsComponent } from './bot-records/bot-records.component';
     ScoreboardComponent,
     MapsComponent,
     NotFoundComponent,
-    BotRecordsComponent
+    BotRecordsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -35,6 +36,7 @@ import { BotRecordsComponent } from './bot-records/bot-records.component';
     FormsModule,
     HttpClientModule,
     NgbModalModule,
+    NgbModule,
     OptixRoutingModule,
     ToastrModule.forRoot({
       timeOut: 1500,

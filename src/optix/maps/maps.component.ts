@@ -35,7 +35,7 @@ export class MapsComponent {
 	}
 
 	filterMaps() {
-		if (this.searchString.trim() == "") {
+		if (this.searchString.trim() === "") {
 			this.filteredMapList = this.fullMapList
 		} else {
 			this.filteredMapList = []
@@ -44,7 +44,7 @@ export class MapsComponent {
 				if(author.authorName.toLowerCase().includes(normalizedSearchString)) {
 					this.filteredMapList.push(author)
 				} else {
-					var filteredMaps: MapScript[] = []
+					let filteredMaps: MapScript[] = []
 					author.maps.forEach((nextMap) => {
 						if(
 							nextMap.Name.toLowerCase().includes(normalizedSearchString) || 
@@ -54,7 +54,7 @@ export class MapsComponent {
 							filteredMaps.push(nextMap)
 						}
 					})
-					if(filteredMaps.length != 0) {
+					if(filteredMaps.length !== 0) {
 						this.filteredMapList.push({
 							authorName: author.authorName,
 							maps: filteredMaps

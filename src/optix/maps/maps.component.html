@@ -1,6 +1,11 @@
 <div class="container">
 	<div class="row title-bar">
-		<h1 class="col-sm">Maps</h1>
+		<h1 class="col-sm">
+			<div class="title">Maps</div>
+			<button class="btn btn-primary download-all" type="button" (click)="downloadAllMaps()">
+				<div class="download-all-text">Download All</div>
+			</button>
+		</h1>
 		<div class="col-md">
 			<div class="input-group mb-3">
 				<input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchString" (keyup.enter)="filterMaps()">

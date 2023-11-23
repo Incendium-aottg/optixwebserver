@@ -34,6 +34,10 @@ export class MapsComponent {
 		})
 	}
 
+	downloadAllMaps() {
+		window.location.href='../../assets/mapscripts.zip';
+	}
+
 	filterMaps() {
 		if (this.searchString.trim() === "") {
 			this.filteredMapList = this.fullMapList

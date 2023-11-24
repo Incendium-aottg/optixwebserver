@@ -1,9 +1,9 @@
 <div class="master-container">
-  <optix-sidebar class="sidebar"></optix-sidebar>
-  <div class="content-wrapper">
-    <div class="content">
-      <router-outlet></router-outlet>
-    </div>
-    <div class="disclaimer">By using this website, you acknowledge the CCP's crimes against humanity</div>
-  </div>
+	<optix-sidebar class="sidebar"></optix-sidebar>
+	<div class="content-wrapper">
+		<div class="content">
+			<router-outlet></router-outlet>
+		 </div>
+		<div *ngIf="isHomeRoute()" class="disclaimer">By using this website, you acknowledge the CCP's crimes against humanity</div>
+	  </div>
 </div>

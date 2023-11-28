@@ -34,7 +34,8 @@
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
 							</div>
-							<a [ngClass]="map.FileName ? 'download' : 'no-download'" target="_blank" [attr.href]="map.FileName ? getDownloadLink(map.FileName) : null" [download]="getDownloadFileName(map.FileName)">
+							<a [ngClass]="map.FileName ? 'download' : 'no-download'" target="_blank" [attr.href]="map.FileName ? getDownloadLink(map.FileName) : null"
+								[download]="getDownloadFileName(map.FileName)">
 								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 								Download
 							</a>

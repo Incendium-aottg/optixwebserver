@@ -30,4 +30,8 @@ export class HomeComponent {
 	getDownloadLink(fileName: string) {
 		return `../../assets/mapscripts/${fileName}.txt`
 	}
+
+	getImageLink(fileName: string) {
+		return `../../assets/images/${fileName}.png`
+	}
 }

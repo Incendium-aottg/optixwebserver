@@ -61,15 +61,6 @@ export class RecordTablePageComponent implements OnChanges {
 		return this.isValidLink(record.verification) ? record.verification : null
 	}
 
-	getTimeClass(verification: string) {
-		if (verification === '') {
-			return 'no-verification'
-		} else if (this.isValidLink(verification)) {
-			return null
-		}
-		return 'no-link'
-	}
-
 	getToolTip(record: Record) {
 		return this.isValidLink(record.verification) ? null : record.verification
 	}

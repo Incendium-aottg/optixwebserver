@@ -1,7 +1,7 @@
 import { HttpClient } from  '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Author } from '../../models/author.model';
+import { AuthorMaps } from "../../models/author-maps.model";
 
 @Injectable({
 	providedIn: 'root'
@@ -11,8 +11,12 @@ export class MapService {
 	constructor(private http: HttpClient) {
 	}
 
-	getMapsByAuthor(): Observable<Author[]> {
-		return this.http.get<Author[]>("https://www.aottgracing.com/api/maps")
+	getBotMaps(): Observable<string[][]> {
+		return this.http.get<string[][]>("https://www.aottgracing.com/api/bot/maps")
+	}
+
+	getMapsByAuthor(): Observable<AuthorMaps[]> {
+		return this.http.get<AuthorMaps[]>("https://www.aottgracing.com/api/maps")
 	}
 
 	getMapScript(fileName: string): Observable<any> {

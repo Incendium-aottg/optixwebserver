@@ -16,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
-import { BotRecordsComponent } from './bot-records/bot-records.component';
+import { BotRecordsComponent } from './bot-server/bot-records/bot-records.component';
 import { RecordTablePageComponent } from './components/record-table-page/record-table-page.component';
+import { BotMapsComponent } from './bot-server/bot-maps/bot-maps.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { RecordTablePageComponent } from './components/record-table-page/record-
     NotFoundComponent,
     BotRecordsComponent,
     RecordTablePageComponent,
+    BotMapsComponent,
   ],
   imports: [
     BrowserAnimationsModule,

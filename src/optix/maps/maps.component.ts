@@ -2,7 +2,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
 import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
-import { Author } from '../models/author.model';
+import { AuthorMaps } from "../models/author-maps.model";
 import { MapScript } from '../models/map-script.model';
 import { MapService } from '../services/map-service/map.service';
 
@@ -16,8 +16,8 @@ export class MapsComponent {
 	faCopy = faCopy;
 	faDownload = faDownload;
 	faPlay = faPlay;
-	fullMapList: Author[] = [];
-	filteredMapList: Author[] = [];
+	fullMapList: AuthorMaps[] = [];
+	filteredMapList: AuthorMaps[] = [];
 	searchString: string = "";
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {

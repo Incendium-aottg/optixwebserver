@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 import { AuthorRecords } from 'src/optix/models/author-records.model';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class RecordsService {
 
 	getTopRecordsByPlayers(): Observable<Record<string, number[]>> {
 		return this.http.get<Record<string, number[]>>("https://www.aottgracing.com/api/worldrecords/players")
+	}
+
+	getTopBotRecords(): Observable<string[][]> {
+		return this.http.get<string[][]>("https://www.aottgracing.com/api/botrecords/top")
 	}
 
 	getTopWorldRecords(): Observable<AuthorRecords[]> {

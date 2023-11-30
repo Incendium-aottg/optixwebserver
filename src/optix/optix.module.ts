@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { BotRecordsComponent } from './bot-records/bot-records.component';
+import { RecordTablePageComponent } from './components/record-table-page/record-table-page.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BotRecordsComponent } from './bot-records/bot-records.component';
     MapsComponent,
     NotFoundComponent,
     BotRecordsComponent,
+    RecordTablePageComponent,
   ],
   imports: [
     BrowserAnimationsModule,

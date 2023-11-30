@@ -14,7 +14,7 @@ export class ScoreboardComponent {
 	silver_records: PlayerRecordsCount[] = [];
 	bronze_records: PlayerRecordsCount[] = [];
 
-  	constructor(private recordService: RecordsService) {
+  	constructor(recordService: RecordsService) {
 		recordService.getTopRecordsByPlayers().subscribe((records) => {
 			let all_records: PlayerRecordsCount[] = []
 			Object.entries(records).forEach(

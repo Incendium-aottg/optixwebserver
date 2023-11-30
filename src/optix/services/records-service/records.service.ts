@@ -10,12 +10,16 @@ export class RecordsService {
 
 	constructor(private http: HttpClient) { }
 
+	getBotMaps(): Observable<string[][]> {
+		return this.http.get<string[][]>("https://www.aottgracing.com/api/bot/maps")
+	}
+
 	getTopRecordsByPlayers(): Observable<Record<string, number[]>> {
 		return this.http.get<Record<string, number[]>>("https://www.aottgracing.com/api/worldrecords/players")
 	}
 
 	getTopBotRecords(): Observable<string[][]> {
-		return this.http.get<string[][]>("https://www.aottgracing.com/api/botrecords/top")
+		return this.http.get<string[][]>("https://www.aottgracing.com/api/bot/records")
 	}
 
 	getTopWorldRecords(): Observable<AuthorRecords[]> {

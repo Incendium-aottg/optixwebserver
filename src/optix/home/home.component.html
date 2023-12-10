@@ -23,7 +23,7 @@
 				<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
 				Copy to Clipboard
 			</div>
-			<a class="link" target="_blank" href="getDownloadLink(fileName)" [download]="getDownloadFileName(fileName)">
+			<a class="link" target="_blank" [href]="getDownloadLink(fileName)" [download]="getDownloadFileName(fileName)">
 				<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 				Download
 			</a>

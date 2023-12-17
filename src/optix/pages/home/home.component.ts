@@ -3,10 +3,10 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { faCopy, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
-import { MapScript } from '../models/map-script.model';
-import { Run } from '../models/run.model';
-import { MapService } from '../services/map-service/map.service';
-import { RecordsService } from '../services/records-service/records.service';
+import { MapScript } from '../../models/map-script.model';
+import { Run } from '../../models/run.model';
+import { MapService } from '../../services/map-service/map.service';
+import { RecordsService } from '../../services/records-service/records.service';
 
 @Component({
 	selector: 'optix-home',

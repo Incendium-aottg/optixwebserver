@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
-import { AuthorMaps } from "../models/author-maps.model";
-import { MapScript } from '../models/map-script.model';
-import { MapService } from '../services/map-service/map.service';
+import { AuthorMaps } from "../../models/author-maps.model";
+import { MapScript } from '../../models/map-script.model';
+import { MapService } from '../../services/map-service/map.service';
 
 @Component({
 	selector: 'app-maps',

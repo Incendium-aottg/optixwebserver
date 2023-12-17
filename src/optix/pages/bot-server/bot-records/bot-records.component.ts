@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { take } from 'rxjs';
-import { AuthorRecords } from '../../models/author-records.model';
-import { MapRecords } from '../../models/map-records.model';
-import { RecordsService } from '../../services/records-service/records.service';
+import { AuthorRecords } from '../../../models/author-records.model';
+import { MapRecords } from '../../../models/map-records.model';
+import { RecordsService } from '../../../services/records-service/records.service';
 
 @Component({
 	selector: 'app-bot-records',

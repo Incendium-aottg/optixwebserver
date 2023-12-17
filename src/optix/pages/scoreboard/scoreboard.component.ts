@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { take } from 'rxjs';
-import { PlayerRecordsCount } from '../models/player-records-count.model';
-import { RecordsService } from '../services/records-service/records.service';
+import { PlayerRecordsCount } from '../../models/player-records-count.model';
+import { RecordsService } from '../../services/records-service/records.service';
 
 @Component({
 	selector: 'app-scoreboard',

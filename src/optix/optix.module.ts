@@ -1,25 +1,25 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { OptixRoutingModule } from './optix-routing.module';
-import { OptixComponent } from './optix.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HomeComponent } from './home/home.component';
-import { WorldRecordsComponent } from './world-records/world-records.component';
-import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MapsComponent } from './maps/maps.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { NotFoundComponent } from './not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { BotRecordsComponent } from './bot-server/bot-records/bot-records.component';
-import { RecordTablePageComponent } from './components/record-table-page/record-table-page.component';
-import { BotMapsComponent } from './bot-server/bot-maps/bot-maps.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule } from 'ngx-toastr';
+
+import { OptixComponent } from './optix.component';
+import { OptixRoutingModule } from './optix-routing.module';
 import { SafePipe } from './pipes/safe.pipe';
+import { BotMapsComponent } from './pages/bot-server/bot-maps/bot-maps.component';
+import { BotRecordsComponent } from './pages/bot-server/bot-records/bot-records.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MapsComponent } from './pages/maps/maps.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { RecordTablePageComponent } from './components/record-table-page/record-table-page.component';
+import { ScoreboardComponent } from './pages/scoreboard/scoreboard.component';
+import { WorldRecordsComponent } from './pages/world-records/world-records.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { SafePipe } from './pipes/safe.pipe';
     RecordTablePageComponent,
     BotMapsComponent,
     SafePipe,
+    LoginComponent,
   ],
   imports: [
     BrowserAnimationsModule,

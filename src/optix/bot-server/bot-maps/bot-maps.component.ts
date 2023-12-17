@@ -23,26 +23,25 @@ export class BotMapsComponent {
 			let uniqueAuthors = new Set<string>()
 			all_maps.forEach((next_map) => {
 				// Get the author
-				let authorIndex = next_map[0].indexOf('__')
-				if (authorIndex === -1) {
-					next_map[0] = `${this.unknownAuthor}__` + next_map[0]
-				} else {
-					uniqueAuthors.add(next_map[0].substring(0, next_map[0].indexOf('__')))
+				let authorIndex = next_map[1].indexOf('__')
+				if (authorIndex !== -1) {
+					uniqueAuthors.add(next_map[1].substring(0, authorIndex))
 				}
 			})
 			let sortedAuthors = Array.from(uniqueAuthors).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
 			sortedAuthors.push(this.unknownAuthor)
 
 			// Create a dictionary of authors to MapRecords
-			let authorMaps = Object.fromEntries(sortedAuthors.map((author) => [author, [] as string[]]))
+			let authorMaps = Object.fromEntries(sortedAuthors.map((author) => [author, [] as string[][]]))
 
 			// populate the authors
 			all_maps.forEach((next_map) => {
-				let i = next_map[0].indexOf('__')
-				if (i === -1) {
-					authorMaps[this.unknownAuthor].push(next_map[0])
+				let mapTokens = next_map[1].split("__")
+				if (mapTokens.length === 1) {
+					authorMaps[this.unknownAuthor].push(next_map)
 				} else {
-					authorMaps[next_map[0].substring(0, i)].push(next_map[0])
+					next_map[1] = mapTokens[1]
+					authorMaps[mapTokens[0]].push(next_map)
 				}
 			})
 
@@ -50,9 +49,8 @@ export class BotMapsComponent {
 			let collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'})
 			sortedAuthors.forEach((author) => this.fullMapList.push({
 				authorName: author,
-				maps: authorMaps[author].sort(collator.compare)
+				maps: authorMaps[author].sort((a, b) => collator.compare(a[1], b[1]))
 			}))
-
 			this.filteredMapList = this.fullMapList
 		})
 	}
@@ -67,9 +65,9 @@ export class BotMapsComponent {
 				if(author.authorName.toLowerCase().includes(normalizedSearchString)) {
 					this.filteredMapList.push(author)
 				} else {
-					let filteredMaps: string[] = []
+					let filteredMaps: string[][] = []
 					author.maps.forEach((nextMap) => {
-						if(nextMap.toLowerCase().includes(normalizedSearchString)) {
+						if(nextMap[0].includes(normalizedSearchString) || nextMap[1].toLowerCase().includes(normalizedSearchString)) {
 							filteredMaps.push(nextMap)
 						}
 					})

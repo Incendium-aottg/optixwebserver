@@ -22,8 +22,9 @@
 					<div class="line"></div>
 				</a>
 				<div class="map-list">
-					<div *ngFor="let mapName of author.maps">
-						{{mapName}}
+					<div *ngFor="let nextMap of author.maps">
+						<div class="map-id">[{{nextMap[0]}}]</div>
+						{{nextMap[1]}}
 					</div>
 				</div>
 			</div>

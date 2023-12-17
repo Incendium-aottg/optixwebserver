@@ -13,7 +13,6 @@ export class WorldRecordsComponent {
 
 	constructor(recordService: RecordsService) {
 		recordService.getTopWorldRecords().pipe(take(1)).subscribe((allRecords) => {
-			console.log(this.allRecords)
 			this.allRecords = allRecords
 		})
 	}

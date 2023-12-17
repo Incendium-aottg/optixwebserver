@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs';
 import { PlayerRecordsCount } from '../models/player-records-count.model';
 import { RecordsService } from '../services/records-service/records.service';
 
@@ -15,7 +16,7 @@ export class ScoreboardComponent {
 	bronze_records: PlayerRecordsCount[] = [];
 
   	constructor(recordService: RecordsService) {
-		recordService.getTopRecordsByPlayers().subscribe((records) => {
+		recordService.getTopRecordsByPlayers().pipe(take(1)).subscribe((records) => {
 			let all_records: PlayerRecordsCount[] = []
 			Object.entries(records).forEach(
 				([playerName, recordCount]) => all_records.push({

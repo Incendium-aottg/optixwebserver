@@ -1,8 +1,8 @@
-import { Record } from './record.model'
+import { Run } from './run.model'
 
 export class MapRecords {
 	public altNames!: string[];
 	public otherAuthors!: string[];
 	public map!: string;
-	public records!: (Record | null)[];
+	public records!: (Run | null)[];
 }

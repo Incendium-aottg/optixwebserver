@@ -2,6 +2,7 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
 import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs';
 import { AuthorMaps } from "../models/author-maps.model";
 import { MapScript } from '../models/map-script.model';
 import { MapService } from '../services/map-service/map.service';
@@ -21,14 +22,14 @@ export class MapsComponent {
 	searchString: string = "";
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
-		mapService.getMapsByAuthor().subscribe((maps) => {
+		mapService.getMapsByAuthor().pipe(take(1)).subscribe((maps) => {
 			this.fullMapList = maps;
 			this.filteredMapList = this.fullMapList
 		})
 	}
 
 	copyMapScript(fileName: string) {
-		this.mapService.getMapScript(fileName).subscribe((script:string) => {
+		this.mapService.getMapScript(fileName).pipe(take(1)).subscribe((script:string) => {
 			this.clipboard.copy(script);
 			this.toastr.success('Copied to Clipboard!');
 		})
@@ -51,9 +52,9 @@ export class MapsComponent {
 					let filteredMaps: MapScript[] = []
 					author.maps.forEach((nextMap) => {
 						if(
-							nextMap.Name.toLowerCase().includes(normalizedSearchString) || 
-							nextMap.MapSubtitle.toLowerCase().includes(normalizedSearchString) ||
-							nextMap.AltNames.some((name) => name.toLocaleLowerCase().includes(normalizedSearchString))
+							nextMap.name.toLowerCase().includes(normalizedSearchString) || 
+							nextMap.mapSubtitle.toLowerCase().includes(normalizedSearchString) ||
+							nextMap.altNames.some((name) => name.toLocaleLowerCase().includes(normalizedSearchString))
 						) {
 							filteredMaps.push(nextMap)
 						}
@@ -78,7 +79,7 @@ export class MapsComponent {
 	}
 
 	getMapSubtitle(map: MapScript) {
-		return map.MapSubtitle ?`[${map.MapSubtitle}]` : ''
+		return map.mapSubtitle ?`[${map.mapSubtitle}]` : ''
 	}
 
 	normalizeName(name: string) {

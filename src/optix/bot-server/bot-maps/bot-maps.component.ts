@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { faChevronRight, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { take } from 'rxjs';
 import { BotAuthorMaps } from 'src/optix/models/bot-author-maps.model';
 import { MapService } from 'src/optix/services/map-service/map.service';
 
@@ -17,7 +18,7 @@ export class BotMapsComponent {
 	unknownAuthor = 'Unknown'
 
 	constructor(mapService: MapService) {
-		mapService.getBotMaps().subscribe((all_maps) => {
+		mapService.getBotMaps().pipe(take(1)).subscribe((all_maps) => {
 			// Create a list of authors
 			let uniqueAuthors = new Set<string>()
 			all_maps.forEach((next_map) => {

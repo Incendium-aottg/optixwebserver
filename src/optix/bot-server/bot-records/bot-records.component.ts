@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { take } from 'rxjs';
 import { AuthorRecords } from '../../models/author-records.model';
 import { MapRecords } from '../../models/map-records.model';
 import { RecordsService } from '../../services/records-service/records.service';
@@ -14,7 +15,7 @@ export class BotRecordsComponent {
 	unknownAuthor = 'Unknown'
 
 	constructor(recordService: RecordsService) {
-		recordService.getTopBotRecords().subscribe((allRecords) => {
+		recordService.getTopBotRecords().pipe(take(1)).subscribe((allRecords) => {
 			// Create a list of authors
 			let uniqueAuthors = new Set<string>()
 			allRecords.forEach((record) => {
@@ -42,17 +43,17 @@ export class BotRecordsComponent {
 					records: [
 						record[1] === null ? null : {
 							player: record[1],
-							recordId: -1,
+							_id: -1,
 							time: this.roundTime(parseFloat(record[2])),
 							verification: ''
 						}, record[3] === null ? null : {
 							player: record[3],
-							recordId: -1,
+							_id: -1,
 							time: this.roundTime(parseFloat(record[4])),
 							verification: ''
 						}, record[5] === null ? null : {
 							player: record[5],
-							recordId: -1,
+							_id: -1,
 							time: this.roundTime(parseFloat(record[6])),
 							verification: ''
 						}]

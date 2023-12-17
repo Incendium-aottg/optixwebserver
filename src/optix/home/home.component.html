@@ -6,28 +6,26 @@
 	<div class="row newest-records">
 		<div class="col-xl-6 video-wrapper">
 			<h2>Newest <span class="speed">Speed</span> Record</h2>
-			<iframe src="https://www.youtube.com/embed/X-IhqS-D4Ak" class="video" title="Zil - Ireeeeee 31.56" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<iframe [src]="getNewestSpeedLink() | safe" class="video" frameborder="0" allow="web-share" allowfullscreen></iframe>
 		</div>
 		<div class="col-xl-6 video-wrapper">
 			<h2>Newest <span class="lava">Lava</span> Record</h2>
-			<iframe src="https://www.youtube.com/embed/qslrkE7kYlE" class="video" title="Incendium - Inferno II World Record (252s)" frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+			<iframe [src]="getNewestLavaLink() | safe" class="video" frameborder="0" allow="web-share" allowfullscreen></iframe>
 		</div>
 	</div>
 	<div class="new-maps">
-		<h2 class="map-header">Newest <span class="map-text">Map</span>: <span class="map-text">Deathdream</span></h2>
-		<h3>by Riblei</h3>
+		<h2 class="map-header">Newest <span class="map-text">Map</span>: <span class="map-text">{{getMapName()}}</span></h2>
+		<h3>{{getMapAuthors()}}</h3>
 		<div class="download-links">
-			<div class="link" (click)="copyMapScript(fileName)">
+			<div class="link" (click)="copyMapScript()">
 				<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
 				Copy to Clipboard
 			</div>
-			<a class="link" target="_blank" [href]="getDownloadLink(fileName)" [download]="getDownloadFileName(fileName)">
+			<a class="link" target="_blank" [href]="getMapDownloadLink()" [download]="getMapDownloadFileName()">
 				<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 				Download
 			</a>
 		</div>
-		<img [src]="getImageLink(fileName)" class="image">
+		<img [src]="getMapImageLink()" class="image">
 	</div>
 </div>

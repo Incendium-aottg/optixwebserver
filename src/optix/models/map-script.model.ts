@@ -1,10 +1,11 @@
 export class MapScript {
-	public AuthorIds!: number[];
-	public AltNames!: string[];
-	public FileName!: string;
+	public authorIds!: number[];
+	public authorNames!: string[];
+	public altNames!: string[];
+	public fileName!: string;
 	public _id!: number;
-	public MapSubtitle!: string;
-	public Name!: string;
-	public Notes!: string;
-	public OriginalMapId!: number;
+	public mapSubtitle!: string;
+	public name!: string;
+	public notes!: string;
+	public originalMapId!: number;
 }

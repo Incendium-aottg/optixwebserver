@@ -1,6 +1,7 @@
 import { HttpClient } from  '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { MapScript } from 'src/optix/models/map-script.model';
 import { AuthorMaps } from "../../models/author-maps.model";
 
 @Injectable({
@@ -21,5 +22,9 @@ export class MapService {
 
 	getMapScript(fileName: string): Observable<any> {
 		return this.http.get(`../../assets/mapscripts/${fileName}.txt`, { responseType: 'text' })
+	}
+
+	getNewestMap(): Observable<MapScript> {
+		return this.http.get<MapScript>("https://www.aottgracing.com/api/maps/newest")
 	}
 }

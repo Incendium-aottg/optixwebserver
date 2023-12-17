@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges} from '@angular/core';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { Record } from '../../models/record.model';
+import { Run } from '../../models/run.model';
 import { AuthorRecords } from '../../models/author-records.model';
 import { MapRecords } from '../../models/map-records.model';
 
@@ -57,15 +57,15 @@ export class RecordTablePageComponent implements OnChanges {
 		}
 	}
 
-	getLink(record: Record) {
+	getLink(record: Run) {
 		return this.isValidLink(record.verification) ? record.verification : null
 	}
 
-	getToolTip(record: Record) {
+	getToolTip(record: Run) {
 		return this.isValidLink(record.verification) ? null : record.verification
 	}
 
-	getRecordText(record: Record) {
+	getRecordText(record: Run) {
 		if (record) {
 			return record.player + " - " + record.time
 		}

@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { RecordsService } from '../services/records-service/records.service';
 import { AuthorRecords } from '../models/author-records.model';
+import { take } from 'rxjs';
 
 @Component({
 	selector: 'app-world-records',
@@ -11,7 +12,8 @@ export class WorldRecordsComponent {
 	allRecords: AuthorRecords[] = [];
 
 	constructor(recordService: RecordsService) {
-		recordService.getTopWorldRecords().subscribe((allRecords) => {
+		recordService.getTopWorldRecords().pipe(take(1)).subscribe((allRecords) => {
+			console.log(this.allRecords)
 			this.allRecords = allRecords
 		})
 	}

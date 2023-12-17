@@ -111,6 +111,11 @@ export class HomeComponent {
 	}
 
 	getYoutubeEmbed(link: string) {
-		return `https://www.youtube.com/embed/${link.substring(link.lastIndexOf('/') + 1)}`
+		if (link.includes('watch?v=')) {
+			return `https://www.youtube.com/embed/${link.substring(link.indexOf('=') + 1)}`
+		} else if (link.includes('youtu.be')) {
+			return `https://www.youtube.com/embed/${link.substring(link.lastIndexOf('/') + 1)}`
+		}
+		return ''
 	}
 }

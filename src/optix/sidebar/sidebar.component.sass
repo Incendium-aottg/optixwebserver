@@ -1,10 +1,15 @@
 .main-panel
 	background-color: #202020
 	box-shadow: 2px 0 12px #000000
-	min-height: 100dvh
+	display: flex
+	flex-direction: column
+	height: 100dvh
+	justify-content: space-between
+	min-width: 200px
+	overflow: auto
 	position: sticky
 	top: 0
-	width: 330px
+	width: 36vh
 
 	a
 		text-decoration: none
@@ -31,7 +36,7 @@
 
 			h2
 				color: white
-				font-size: 26px
+				font-size: max(14px, 2.6vh)
 				font-weight: normal
 				margin: 0
 				padding: 0 30px
@@ -40,17 +45,15 @@
 		background: -webkit-linear-gradient(left, white, #202020)
 		display: block
 		height: 2px
-		margin: 25px 0 15px 0
+		margin: 2.5vh 0 1.5vh 0
 
 	.footer
-		bottom: 0
-		position: absolute
 		width: 100%
 
 		.icons
 			display: flex
 			justify-content: space-around
-			margin: 30px 0
+			margin: min(30px, 6vh) 0 30px 0
 
 			.discord
 				width: 20%
@@ -59,7 +62,7 @@
 		align-items: flex-start
 		display: flex
 		justify-content: center
-		padding-top: 25px
+		margin: 25px 0
 
 		.logo
 			width: 80%

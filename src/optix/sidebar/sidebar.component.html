@@ -1,11 +1,11 @@
-<div class="main-panel">
+<div class="main-panel" [@toggleSidebar]="getSidebarState()">
 	<div class="body">
-		<a [routerLink]="['/']">
-			<div class="logo-container">
+		<div class="logo-container">
+			<a class="logo-anchor" [routerLink]="['/']">
 				<img src="../../assets/Optix.svg" alt="Optix" class="logo" />
-				<p>╳</p>
-			</div>
-		</a>
+			</a>
+			<p class="mobile-cross" (click)="toggleSidebar()" type="button">╳</p>
+		</div>
 		<span class="divider"></span>
 		<a [routerLink]="['/worldrecords']">
 			<div class="link">

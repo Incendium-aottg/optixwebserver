@@ -60,11 +60,28 @@
 		align-items: flex-start
 		display: flex
 		justify-content: center
-		margin: 25px 0
+		margin: 25px auto
+		width: 80%
 
-		.close-cross
-			position: absolute
-			right: 10%
+		.mobile-cross
+			display: none
 
 		.logo
-			width: 80%
+			width: 100%
+
+@media (max-width:600px)
+	.main-panel
+		position: absolute
+		z-index: 3
+		width: 100%
+
+		a .link h2
+			font-size: 3.5vh
+
+		.logo-container .mobile-cross
+			color: #fff
+			display: block
+			font-size: 30px
+			position: absolute
+			right: 20px
+			top: 5px

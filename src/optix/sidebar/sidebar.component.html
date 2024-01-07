@@ -7,28 +7,28 @@
 			<p class="mobile-cross" (click)="toggleSidebar()" type="button">╳</p>
 		</div>
 		<span class="divider"></span>
-		<a [routerLink]="['/worldrecords']">
+		<a [routerLink]="['/worldrecords']" (click)="closeSidebar()">
 			<div class="link">
 				<h2>World Records</h2>
 			</div>
 		</a>
-		<a [routerLink]="['/scoreboard']">
+		<a [routerLink]="['/scoreboard']" (click)="closeSidebar()">
 			<div class="link">
 				<h2>Scoreboard</h2>
 			</div>
 		</a>
-		<a [routerLink]="['/maps']">
+		<a [routerLink]="['/maps']" (click)="closeSidebar()">
 			<div class="link">
 				<h2>Maps</h2>
 			</div>
 		</a>
 		<span class="divider"></span>
-		<a [routerLink]="['/botrecords']">
+		<a [routerLink]="['/botrecords']" (click)="closeSidebar()">
 			<div class="link">
 				<h2>Optix Bot Records</h2>
 			</div>
 		</a>
-		<a [routerLink]="['/botmaps']">
+		<a [routerLink]="['/botmaps']" (click)="closeSidebar()">
 			<div class="link">
 				<h2>Optix Bot Maps</h2>
 			</div>

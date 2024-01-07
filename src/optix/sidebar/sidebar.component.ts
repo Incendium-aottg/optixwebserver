@@ -23,6 +23,10 @@ export class SidebarComponent {
 	mobileThreshold = 600
 	@HostListener('window:resize', ['$event'])
 
+	closeSidebar() {
+		this.sidebarOpen = false
+	}
+
 	getSidebarState() {
 		if (this.sidebarOpen || window.innerWidth > this.mobileThreshold)
 			return 'open'

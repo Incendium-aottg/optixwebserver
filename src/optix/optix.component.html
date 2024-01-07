@@ -6,5 +6,7 @@
 		 </div>
 		<div *ngIf="isHomeRoute()" class="disclaimer">By using this website, you acknowledge the CCP's crimes against humanity</div>
 	</div>
-	<fa-icon [icon]="faBars" class="hamburger" (click)="toggleSidebar()"></fa-icon>
+	<div class="hamburger-circle">
+		<fa-icon [icon]="faBars" class="hamburger" (click)="toggleSidebar()"></fa-icon>
+	</div>
 </div>

@@ -11,7 +11,6 @@
 
 	.content-wrapper
 		height: 100dvh
-		min-width: 600px
 		overflow-y: scroll
 		width: 100%
 
@@ -26,17 +25,18 @@
 		display: none
 
 @media (max-width:600px)
-	.master-container
-		
-		.content-wrapper
-			overflow-y: inherit
-			width: auto
-		
+	.master-container .hamburger-circle
+		background-color: #202020
+		border-radius: 30px
+		box-shadow: 2px 0 12px #000000
+		left: 15px
+		position: absolute
+		text-align: center
+		top: 15px
+		width: 45px
+		&:hover
+			cursor: pointer
+
 		.hamburger
 			display: block
 			font-size: 30px
-			left: 15px
-			position: absolute
-			top: 5px
-			&:hover
-				cursor: pointer

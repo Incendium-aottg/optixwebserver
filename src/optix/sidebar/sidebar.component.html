@@ -1,7 +1,7 @@
 <div class="main-panel" [@toggleSidebar]="getSidebarState()">
 	<div class="body">
 		<div class="logo-container">
-			<a class="logo-anchor" [routerLink]="['/']">
+			<a class="logo-anchor" [routerLink]="['/']" (click)="closeSidebar()">
 				<img src="../../assets/Optix.svg" alt="Optix" class="logo" />
 			</a>
 			<p class="mobile-cross" (click)="toggleSidebar()" type="button">╳</p>

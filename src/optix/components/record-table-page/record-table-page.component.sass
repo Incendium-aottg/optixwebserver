@@ -1,62 +1,76 @@
-.title-bar
-	margin-top: 70px
+.page
+	min-width: fit-content
 
-	h1
-		font-size: 50px
-		font-weight: normal
+	.title-bar
+		left: 20px
+		margin-top: 70px
+		max-width: 90dvw
+		position: sticky
 
-.world-records
-	margin-top: 30px
+		h1
+			font-size: 50px
+			font-weight: normal
 
-	.center
-		text-align: center
+	.world-records
+		margin-top: 30px
 
-	.first-header
-		background-color: #ffd800
+		.center
+			text-align: center
 
-	.header
-		background-color: #303030
+		.first-header
+			background-color: #ffd800
 
-	.record-rows
-		font-size: 18px
-		vertical-align: middle
+		.header
+			background-color: #303030
 
-		.author-column
-			background-color: #3b3b3b
+		.record-rows
+			font-size: 16px
 			vertical-align: middle
 
-			.scroll-author
-				bottom: 0
-				padding: 20px 0
-				position: sticky
-				top: 0
+			.author-column
+				background-color: #3b3b3b
+				vertical-align: middle
 
-		.even-row
-			background-color: #141719
+				.scroll-author
+					bottom: 0
+					padding: 20px 0
+					position: sticky
+					top: 0
 
-		.first-row
-			background-color: #ccaa0040
+			.even-row
+				background-color: #141719
 
-		.hide
-			display: none
+			.first-row
+				background-color: #ccaa0040
 
-		.no-link
-			color: #ffffff
+			.hide
+				display: none
 
-		.no-verification
-			text-decoration: none
+			.no-link
+				color: #ffffff
 
-		.second-row
-			background-color: #c0c0c040
+			.no-verification
+				text-decoration: none
 
-		.third-row
-			background-color: #cd7f3240
+			.second-row
+				background-color: #c0c0c040
 
-	.shadow
-		text-shadow: 0 0 10px #000
+			.third-row
+				background-color: #cd7f3240
 
-	.second-header
-		background-color: #c0c0c0
+		.shadow
+			text-shadow: 0 0 10px #000
 
-	.third-header
-		background-color: #cd7f32
+		.second-header
+			background-color: #c0c0c0
+
+		.third-header
+			background-color: #cd7f32
+
+@media (max-width:1160px) and (min-width: 992px)
+	.page .title-bar .input-bar
+		max-width: calc(100dvw - 646px)
+
+@media (max-width:991px) and (min-width: 601px)
+	.page .title-bar .input-bar
+		max-width: calc(100dvw - 232px)

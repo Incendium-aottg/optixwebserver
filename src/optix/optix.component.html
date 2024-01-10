@@ -1,9 +1,12 @@
-<div class="master-container">
-	<optix-sidebar class="sidebar"></optix-sidebar>
+<div class="master-container" [ngClass]="{'lock-scrolling': isSidebarVisible()}">
+	<optix-sidebar></optix-sidebar>
 	<div class="content-wrapper">
 		<div class="content">
 			<router-outlet></router-outlet>
 		 </div>
 		<div *ngIf="isHomeRoute()" class="disclaimer">By using this website, you acknowledge the CCP's crimes against humanity</div>
-	  </div>
+	</div>
+	<div class="hamburger-circle">
+		<fa-icon [icon]="faBars" class="hamburger" (click)="toggleSidebar()"></fa-icon>
+	</div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row title-bar">
-		<h1 class="col-sm">
+		<h1 class="col-lg">
 			<div class="title">Maps</div>
 			<button class="btn btn-primary download-all" type="button" (click)="downloadAllMaps()">
 				<div class="download-all-text">Download All</div>
@@ -34,10 +34,10 @@
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
 							</div>
-							<a [ngClass]="map.fileName ? 'download' : 'no-download'" target="_blank" [attr.href]="map.fileName ? getDownloadLink(map.fileName) : null"
-								[download]="getDownloadFileName(map.fileName)">
+							<a class="no-underline" [ngClass]="map.fileName ? 'download' : 'no-download'" target="_blank"
+								[attr.href]="map.fileName ? getDownloadLink(map.fileName) : null" [download]="getDownloadFileName(map.fileName)">
 								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-								Download
+								<div class="download-text">Download</div>
 							</a>
 						</div>
 						<p class="notes">{{map.notes}}</p>

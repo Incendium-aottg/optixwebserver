@@ -4,20 +4,40 @@
 	display: flex
 	font-family: Arial, sans-serif
 	font-size: 20px
+	max-width: 100dvw
 	min-height: 100vh
+	&.lock-scrolling
+		overflow: clip
 
 	.content-wrapper
-		min-width: 600px
+		height: 100dvh
+		overflow-y: scroll
 		width: 100%
 
 		.content
+			min-width: 100%
 			padding: 20px
 
 		.disclaimer
 			float: right
 			font-size: 12px
+	
+	.hamburger
+		display: none
 
-	.sidebar
-		min-width: 200px
-		width: 36vh
-		flex-shrink: 0
+@media (max-width:600px)
+	.master-container .hamburger-circle
+		background-color: #202020
+		border-radius: 30px
+		box-shadow: 2px 0 12px #000000
+		left: 15px
+		position: absolute
+		text-align: center
+		top: 15px
+		width: 45px
+		&:hover
+			cursor: pointer
+
+		.hamburger
+			display: block
+			font-size: 30px

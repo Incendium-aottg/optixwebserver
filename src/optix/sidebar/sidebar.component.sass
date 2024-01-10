@@ -7,9 +7,7 @@
 	justify-content: space-between
 	min-width: 200px
 	overflow: auto
-	position: sticky
-	top: 0
-	width: 36vh
+	width: 18vw
 
 	a
 		text-decoration: none
@@ -36,7 +34,7 @@
 
 			h2
 				color: white
-				font-size: max(14px, 2.6vh)
+				font-size: max(14px, 1.3vw)
 				font-weight: normal
 				margin: 0
 				padding: 0 25px
@@ -66,7 +64,28 @@
 		align-items: flex-start
 		display: flex
 		justify-content: center
-		margin: 25px 0
+		margin: 25px auto
+		width: 80%
+
+		.mobile-cross
+			display: none
 
 		.logo
-			width: 80%
+			width: 100%
+
+@media (max-width:600px)
+	.main-panel
+		position: absolute
+		z-index: 3
+		width: 100%
+
+		a .link h2
+			font-size: 3.5vh
+
+		.logo-container .mobile-cross
+			color: #fff
+			display: block
+			font-size: 30px
+			position: absolute
+			right: 20px
+			top: 5px

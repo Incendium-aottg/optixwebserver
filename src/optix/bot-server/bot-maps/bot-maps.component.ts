@@ -1,7 +1,10 @@
+import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
-import { faChevronRight, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { BotAuthorMaps } from 'src/optix/models/bot-author-maps.model';
+import { BotMap } from 'src/optix/models/bot-map.model';
 import { MapService } from 'src/optix/services/map-service/map.service';
 
 @Component({
@@ -11,13 +14,16 @@ import { MapService } from 'src/optix/services/map-service/map.service';
 })
 export class BotMapsComponent {
 	faChevronRight = faChevronRight;
+	faCopy = faCopy;
+	faDownload = faDownload;
 	faPlay = faPlay;
 	fullMapList: BotAuthorMaps[] = [];
 	filteredMapList: BotAuthorMaps[] = [];
 	searchString: string = "";
 	unknownAuthor = 'Unknown'
+	downloadingMap = false
 
-	constructor(mapService: MapService) {
+	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
 		mapService.getBotMaps().pipe(take(1)).subscribe((all_maps) => {
 			// Create a list of authors
 			let uniqueAuthors = new Set<string>()
@@ -55,6 +61,30 @@ export class BotMapsComponent {
 		})
 	}
 
+	copyMapScript(id: string) {
+		this.mapService.getBotMapById(id).pipe(take(1)).subscribe((botMap: BotMap) => {
+			this.clipboard.copy(botMap.Script);
+			this.toastr.success('Copied to Clipboard!');
+		})
+	}
+	
+	downloadFile(id: string) {
+		if (!this.downloadingMap) {
+			// Prevent double clicks and whatever
+			this.downloadingMap = true
+			this.mapService.getBotMapById(id).pipe(take(1)).subscribe((botMap: BotMap) => {
+				const downloadLink = document.createElement('a');
+				downloadLink.href = URL.createObjectURL(new Blob([botMap.Script], { type: "text" }));
+				downloadLink.download = `${botMap.Name}.txt`
+				if (botMap.Author !== null) {
+					downloadLink.download = `${botMap.Author}__${botMap.Name}.txt`
+				}
+				downloadLink.click();
+				this.downloadingMap = false
+			})
+		}
+	}
+
 	filterMaps() {
 		if (this.searchString.trim() === "") {
 			this.filteredMapList = this.fullMapList
@@ -80,6 +110,13 @@ export class BotMapsComponent {
 				}
 			})
 		}
+	}
+
+	getDownloadFileName(author: string, mapName: string) {
+		if (author === 'Unknown') {
+			return mapName
+		}
+		return `${author}__${mapName}`
 	}
 
 	normalizeName(name: string) {

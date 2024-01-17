@@ -10,6 +10,7 @@
 
 .author-panel
 	margin-top: 15px
+	min-width: 600px
 
 	.author
 		color: #ffff00
@@ -59,15 +60,23 @@
 				justify-content: space-between
 				width: 100%
 
+				.copy
+					display: flex
+					min-width: 0
+
+				.download
+					display: inline
+					flex-shrink: 0
+
 				.link
 					color: #0094ff
-					display: inline
-					text-decoration: none
 					font-size: 22px
 					font-weight: bold
+					text-decoration: none
 
 					.link-text
 						display: inline
+						word-break: break-all
 						&:hover
 							cursor: pointer
 							text-decoration: underline

@@ -10,7 +10,6 @@
 
 .author-panel
 	margin-top: 15px
-	min-width: 600px
 
 	.author
 		color: #ffff00
@@ -84,6 +83,20 @@
 					.map-button
 						margin: 0 10px
 
+				.link-group
+					flex-shrink: 0
+
+					.stat-link
+						margin-right: 15px
+
 				.map-id
 					display: inline-block
 					width: 50px
+
+@media (max-width:800px)
+	.author-panel .map-section .map-list .map-row
+		.link .sub-link
+			display: none
+
+		.link-group .stat-link
+			margin-right: 5px

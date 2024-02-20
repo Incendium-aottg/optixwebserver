@@ -20,6 +20,7 @@ import { BotRecordsComponent } from './bot-server/bot-records/bot-records.compon
 import { RecordTablePageComponent } from './components/record-table-page/record-table-page.component';
 import { BotMapsComponent } from './bot-server/bot-maps/bot-maps.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { MapPagesComponent } from './map-pages/map-pages.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SafePipe } from './pipes/safe.pipe';
     RecordTablePageComponent,
     BotMapsComponent,
     SafePipe,
+    MapPagesComponent,
   ],
   imports: [
     BrowserAnimationsModule,

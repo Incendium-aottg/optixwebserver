@@ -1,6 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
-import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple, faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { BotAuthorMaps } from 'src/optix/models/bot-author-maps.model';
@@ -13,6 +13,7 @@ import { MapService } from 'src/optix/services/map-service/map.service';
 	styleUrls: ['./bot-maps.component.sass']
 })
 export class BotMapsComponent {
+	faChartSimple = faChartSimple;
 	faChevronRight = faChevronRight;
 	faCopy = faCopy;
 	faDownload = faDownload;
@@ -117,6 +118,10 @@ export class BotMapsComponent {
 			return mapName
 		}
 		return `${author}__${mapName}`
+	}
+
+	getMapId(bot_id: string) {
+		return Number(bot_id) * -1
 	}
 
 	normalizeName(name: string) {

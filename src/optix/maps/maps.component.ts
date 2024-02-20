@@ -1,6 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
-import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faChartSimple, faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { AuthorMaps } from "../models/author-maps.model";
@@ -13,6 +13,7 @@ import { MapService } from '../services/map-service/map.service';
 	styleUrls: ['./maps.component.sass']
 })
 export class MapsComponent {
+	faChartSimple = faChartSimple;
 	faChevronRight = faChevronRight;
 	faCopy = faCopy;
 	faDownload = faDownload;

@@ -80,16 +80,18 @@
 						color: #59bcff
 						display: inline
 
-				.download
+				.link-group
 					flex-shrink: 0
-					&:hover
-						cursor: pointer
-						text-decoration: underline
 
-				.download-text
-					color: #0094ff
-					display: inline
-					text-decoration: none
+					.link
+						color: #0094ff
+						&:hover
+							cursor: pointer
+							text-decoration: underline
+
+					.link-text
+						display: inline
+						text-decoration: none
 
 				.map-button
 						margin: 0 10px
@@ -100,11 +102,8 @@
 					.map-subtitle
 						color: #555555
 						display: inline
-
-				.no-download
-					color: #555555
 			
-			.no-links
+			.no-link
 				color: #555555
 
 			.notes
@@ -113,3 +112,7 @@
 				font-style: italic
 				margin: 0
 				padding-left: 40px
+
+@media (max-width:800px)
+	.author-panel .map-section .map-list .map-links .link-group .link-text
+		display: none

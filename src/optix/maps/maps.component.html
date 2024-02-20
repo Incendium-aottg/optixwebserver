@@ -34,11 +34,17 @@
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
 							</div>
-							<a class="download-text" [ngClass]="map.fileName ? 'download' : 'no-download'" target="_blank"
-								[attr.href]="map.fileName ? getDownloadLink(map.fileName) : null" [download]="getDownloadFileName(map.fileName)">
-								<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
-								<div class="download-text">Download</div>
-							</a>
+							<div class="link-group">
+								<a class="link">
+									<fa-icon class="map-button" [icon]="faChartSimple"></fa-icon>
+									<div class="link-text">Stats</div>
+								</a>
+								<a [ngClass]="map.fileName ? 'link' : 'no-link'" target="_blank"
+									[attr.href]="map.fileName ? getDownloadLink(map.fileName) : null" [download]="getDownloadFileName(map.fileName)">
+									<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+									<div class="link-text">Download</div>
+								</a>
+							</div>
 						</div>
 						<p class="notes">{{map.notes}}</p>
 					</div>

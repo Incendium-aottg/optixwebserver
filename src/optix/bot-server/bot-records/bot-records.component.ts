@@ -20,11 +20,11 @@ export class BotRecordsComponent {
 			let uniqueAuthors = new Set<string>()
 			allRecords.forEach((record) => {
 				// Get the author
-				let authorIndex = record[0].indexOf('__')
+				let authorIndex = record[1].indexOf('__')
 				if (authorIndex === -1) {
-					record[0] = `${this.unknownAuthor}__` + record[0]
+					record[1] = `${this.unknownAuthor}__` + record[1]
 				} else {
-					uniqueAuthors.add(record[0].substring(0, record[0].indexOf('__')))
+					uniqueAuthors.add(record[1].substring(0, record[1].indexOf('__')))
 				}
 			})
 			let sortedAuthors = Array.from(uniqueAuthors).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
@@ -35,28 +35,30 @@ export class BotRecordsComponent {
 
 			// populate the mapRecords
 			allRecords.forEach((record) => {
-				let i = record[0].indexOf('__')
-				authorRecords[record[0].substring(0, i)].push({
+				let i = record[1].indexOf('__')
+				authorRecords[record[1].substring(0, i)].push({
 					altNames: [],
+					id: Number(record[0]),
+					map: record[1].substring(i + 2),
 					otherAuthors: [],
-					map: record[0].substring(i + 2),
 					records: [
-						record[1] === null ? null : {
-							player: record[1],
+						record[2] === null ? null : {
+							player: record[2],
 							_id: -1,
-							time: this.roundTime(parseFloat(record[2])),
+							time: this.roundTime(parseFloat(record[3])),
 							verification: ''
-						}, record[3] === null ? null : {
-							player: record[3],
+						}, record[4] === null ? null : {
+							player: record[4],
 							_id: -1,
-							time: this.roundTime(parseFloat(record[4])),
+							time: this.roundTime(parseFloat(record[5])),
 							verification: ''
-						}, record[5] === null ? null : {
-							player: record[5],
+						}, record[6] === null ? null : {
+							player: record[6],
 							_id: -1,
-							time: this.roundTime(parseFloat(record[6])),
+							time: this.roundTime(parseFloat(record[7])),
 							verification: ''
-						}]
+						}],
+					recordType: "bot"
 				})
 			})
 

@@ -26,6 +26,7 @@ export class BotMapsComponent {
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
 		mapService.getBotMaps().pipe(take(1)).subscribe((all_maps) => {
+			console.log(all_maps)
 			// Create a list of authors
 			let uniqueAuthors = new Set<string>()
 			all_maps.forEach((next_map) => {
@@ -64,7 +65,7 @@ export class BotMapsComponent {
 
 	copyMapScript(id: string) {
 		this.mapService.getBotMapById(id).pipe(take(1)).subscribe((botMap: BotMap) => {
-			this.clipboard.copy(botMap.Script);
+			this.clipboard.copy(botMap.Data);
 			this.toastr.success('Copied to Clipboard!');
 		})
 	}
@@ -74,8 +75,9 @@ export class BotMapsComponent {
 			// Prevent double clicks and whatever
 			this.downloadingMap = true
 			this.mapService.getBotMapById(id).pipe(take(1)).subscribe((botMap: BotMap) => {
+				console.log(botMap)
 				const downloadLink = document.createElement('a');
-				downloadLink.href = URL.createObjectURL(new Blob([botMap.Script], { type: "text" }));
+				downloadLink.href = URL.createObjectURL(new Blob([botMap.Data], { type: "text" }));
 				downloadLink.download = `${botMap.Name}.txt`
 				if (botMap.Author !== null) {
 					downloadLink.download = `${botMap.Author}__${botMap.Name}.txt`
@@ -111,13 +113,6 @@ export class BotMapsComponent {
 				}
 			})
 		}
-	}
-
-	getDownloadFileName(author: string, mapName: string) {
-		if (author === 'Unknown') {
-			return mapName
-		}
-		return `${author}__${mapName}`
 	}
 
 	getMapId(bot_id: string) {

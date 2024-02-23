@@ -11,8 +11,8 @@ import { MapRecords } from '../../models/map-records.model';
 })
 export class RecordTablePageComponent implements OnChanges {
 	faPlay = faPlay;
-	@Input() tableName = '';
 	@Input() fullRecordsList: AuthorRecords[] = [];
+	@Input() tableName = '';
 	filteredRecordsList: AuthorRecords[] = [];
 	searchString = '';
 
@@ -59,6 +59,17 @@ export class RecordTablePageComponent implements OnChanges {
 
 	getLink(record: Run) {
 		return this.isValidLink(record.verification) ? record.verification : null
+	}
+
+	getMapId(record: MapRecords) {
+		switch(record.recordType) {
+			case "bot":
+				return -record.id;
+			case "world":
+				return record.id;
+			default:
+				return record.id;
+		}
 	}
 
 	getToolTip(record: Run) {

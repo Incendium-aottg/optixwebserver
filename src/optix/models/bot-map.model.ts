@@ -3,5 +3,5 @@ export class BotMap {
 	public Author!: string | null;
 	public Size!: number;
 	public Objects!: number;
-	public Script!: string;
+	public Data!: string;
 }

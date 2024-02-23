@@ -7,6 +7,7 @@ export class MapData {
 	public botId!: number;
 	public botRating!: number;
 	public botRuns!: Run[];
+	public id!: number;
 	public mapType!: MapType;
 	public name!: string;
 	public notes!: string;

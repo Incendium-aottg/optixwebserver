@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BotMapsComponent } from './bot-server/bot-maps/bot-maps.component';
-import { BotRecordsComponent } from './bot-server/bot-records/bot-records.component';
-import { HomeComponent } from './home/home.component';
-import { MapPagesComponent } from './map-pages/map-pages.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ScoreboardComponent } from './scoreboard/scoreboard.component';
-import { WorldRecordsComponent } from './world-records/world-records.component';
+import { BotMapsComponent } from './content/bot-server/bot-maps/bot-maps.component';
+import { BotRecordsComponent } from './content/bot-server/bot-records/bot-records.component';
+import { HomeComponent } from './content/home/home.component';
+import { MapPagesComponent } from './content/map-pages/map-pages.component';
+import { MapsComponent } from './content/maps/maps.component';
+import { NotFoundComponent } from './content/not-found/not-found.component';
+import { ScoreboardComponent } from './content/scoreboard/scoreboard.component';
+import { WorldRecordsComponent } from './content/world-records/world-records.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },

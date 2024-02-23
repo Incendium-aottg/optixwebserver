@@ -1,0 +1,49 @@
+<div class="main-panel" [@toggleSidebar]="getSidebarState()">
+	<div class="body">
+		<div class="logo-container">
+			<a class="logo-anchor" [routerLink]="['/']" (click)="closeSidebar()">
+				<img src="../../assets/Optix.svg" alt="Optix" class="logo" />
+			</a>
+			<p class="mobile-cross" (click)="toggleSidebar()" type="button">╳</p>
+		</div>
+		<span class="divider"></span>
+		<a [routerLink]="['/worldrecords']" (click)="closeSidebar()">
+			<div class="link">
+				<h2>World Records</h2>
+			</div>
+		</a>
+		<a [routerLink]="['/scoreboard']" (click)="closeSidebar()">
+			<div class="link">
+				<h2>Scoreboard</h2>
+			</div>
+		</a>
+		<a [routerLink]="['/maps']" (click)="closeSidebar()">
+			<div class="link">
+				<h2>Maps</h2>
+			</div>
+		</a>
+		<span class="divider"></span>
+		<a [routerLink]="['/botrecords']" (click)="closeSidebar()">
+			<div class="link">
+				<h2>Optix Bot Records</h2>
+			</div>
+		</a>
+		<a [routerLink]="['/botmaps']" (click)="closeSidebar()">
+			<div class="link">
+				<h2>Optix Bot Maps</h2>
+			</div>
+		</a>
+	</div>
+	<div class="footer">
+		<span class="divider"></span>
+		<div class="icons">
+			<div class="filler">
+			</div>
+			<div class="discord">
+				<a href="https://discord.gg/Hked6UP9Gn">
+					<img src="../../assets/discord-mark-blue.svg" alt="Optix"/>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

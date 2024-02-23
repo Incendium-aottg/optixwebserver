@@ -1,0 +1,84 @@
+.page
+	min-width: fit-content
+
+	.title-bar
+		left: 20px
+		margin-top: 70px
+		max-width: 90dvw
+		position: sticky
+
+		h1
+			font-size: 50px
+			font-weight: normal
+
+	.world-records
+		margin-top: 30px
+
+		.center
+			text-align: center
+
+		.first-header
+			background-color: #ffd800
+
+		.header
+			background-color: #303030
+
+		.record-rows
+			font-size: 16px
+			vertical-align: middle
+
+			.author-column
+				background-color: #3b3b3b
+				vertical-align: middle
+
+				.scroll-author
+					bottom: 0
+					padding: 20px 0
+					position: sticky
+					top: 0
+
+			.even-row
+				background-color: #141719
+
+			.first-row
+				background-color: #ccaa0040
+
+			.hide
+				display: none
+
+			.map-link
+				color: #0094ff
+				font-weight: bold
+				text-decoration: none
+				&:hover
+					cursor: pointer
+					text-decoration: underline
+
+			.no-link
+				color: #ffffff
+
+			.no-verification
+				text-decoration: none
+
+			.second-row
+				background-color: #c0c0c040
+
+			.third-row
+				background-color: #cd7f3240
+
+		.shadow
+			text-shadow: 0 0 10px #000
+
+		.second-header
+			background-color: #c0c0c0
+
+		.third-header
+			background-color: #cd7f32
+
+@media (max-width:1160px) and (min-width: 992px)
+	.page .title-bar .input-bar
+		max-width: calc(100dvw - 646px)
+
+@media (max-width:991px) and (min-width: 601px)
+	.page .title-bar .input-bar
+		max-width: calc(100dvw - 232px)

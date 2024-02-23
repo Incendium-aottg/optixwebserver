@@ -1,0 +1,31 @@
+<div class="logo-area">
+	<img src="../../assets/Optix.svg" alt="Optix" class="logo" />
+</div>
+<div class="content">
+	<p>Welcome to Optix, the community for racing in Feng's Attack on Titan Tribute Game (AoTTG). Make use of the 3D Maneuver Gear from the Attack on Titan anime and race through various community created courses!</p>
+	<div class="row newest-records">
+		<div class="col-xl-6 video-wrapper">
+			<h2>Newest <span class="speed">Speed</span> Record</h2>
+			<iframe [src]="getNewestSpeedLink() | safe" class="video" frameborder="0" allow="web-share" allowfullscreen></iframe>
+		</div>
+		<div class="col-xl-6 video-wrapper">
+			<h2>Newest <span class="lava">Lava</span> Record</h2>
+			<iframe [src]="getNewestLavaLink() | safe" class="video" frameborder="0" allow="web-share" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="new-maps">
+		<h2 class="map-header">Newest <span class="map-text">Map</span>: <span class="map-text">{{getMapName()}}</span></h2>
+		<h3>{{getMapAuthors()}}</h3>
+		<div class="download-links">
+			<div class="link" (click)="copyMapScript()">
+				<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+				Copy to Clipboard
+			</div>
+			<a class="link" target="_blank" [href]="getMapDownloadLink()" [download]="getMapDownloadFileName()">
+				<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
+				Download
+			</a>
+		</div>
+		<img [src]="getMapImageLink()" class="image">
+	</div>
+</div>

@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="row title-bar">
+		<h1 class="col-lg">Scoreboard</h1>
+	</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<table class="scoreboard table table-dark">
+				<thead>
+					<tr class="center">
+						<th scope="col" class="header">Player</th>
+						<th scope="col" class="gold-header shadow">Golds</th>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let player of gold_records; index as i">
+						<tr class="record-rows">
+							<th scope="row" class="center player-column">
+								{{player.player}}
+							</th>
+							<td class="center shadow" [ngClass]="getScoreboardClass(0, player, gold_records)">
+								{{player.recordCount[0]}}
+							</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-4">
+			<table class="scoreboard table table-dark">
+				<thead>
+					<tr class="center">
+						<th scope="col" class="header">Player</th>
+						<th scope="col" class="silver-header shadow">Silvers</th>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let player of silver_records; index as i">
+						<tr class="record-rows">
+							<th scope="row" class="center player-column">
+								{{player.player}}
+							</th>
+							<td class="center shadow" [ngClass]="getScoreboardClass(1, player, silver_records)">
+								{{player.recordCount[1]}}
+							</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-4">
+			<table class="scoreboard table table-dark">
+				<thead>
+					<tr class="center">
+						<th scope="col" class="header">Player</th>
+						<th scope="col" class="bronze-header shadow">Bronzes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<ng-container *ngFor="let player of bronze_records; index as i">
+						<tr class="record-rows">
+							<th scope="row" class="center player-column">
+								{{player.player}}
+							</th>
+							<td class="center shadow" [ngClass]="getScoreboardClass(2, player, bronze_records)">
+								{{player.recordCount[2]}}
+							</td>
+						</tr>
+					</ng-container>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

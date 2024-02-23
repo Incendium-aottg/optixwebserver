@@ -6,5 +6,4 @@ export class MapRecords {
 	public map!: string;
 	public otherAuthors!: string[];
 	public records!: (Run | null)[];
-	public recordType!: string;
 }

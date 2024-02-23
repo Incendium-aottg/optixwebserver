@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { take } from 'rxjs';
+import { RunType } from 'src/optix/enums/run-type.enum';
 import { AuthorRecords } from '../../models/author-records.model';
 import { MapRecords } from '../../models/map-records.model';
 import { RecordsService } from '../../services/records-service/records.service';
@@ -45,20 +46,22 @@ export class BotRecordsComponent {
 						record[2] === null ? null : {
 							player: record[2],
 							_id: -1,
+							recordType: RunType.Bot,
 							time: this.roundTime(parseFloat(record[3])),
 							verification: ''
 						}, record[4] === null ? null : {
 							player: record[4],
 							_id: -1,
+							recordType: RunType.Bot,
 							time: this.roundTime(parseFloat(record[5])),
 							verification: ''
 						}, record[6] === null ? null : {
 							player: record[6],
 							_id: -1,
+							recordType: RunType.Bot,
 							time: this.roundTime(parseFloat(record[7])),
 							verification: ''
-						}],
-					recordType: "bot"
+						}]
 				})
 			})
 

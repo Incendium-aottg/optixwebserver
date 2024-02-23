@@ -3,6 +3,7 @@ import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { Run } from '../../models/run.model';
 import { AuthorRecords } from '../../models/author-records.model';
 import { MapRecords } from '../../models/map-records.model';
+import { RunType } from 'src/optix/enums/run-type.enum';
 
 @Component({
 	selector: 'app-record-table-page',
@@ -62,10 +63,10 @@ export class RecordTablePageComponent implements OnChanges {
 	}
 
 	getMapId(record: MapRecords) {
-		switch(record.recordType) {
-			case "bot":
+		switch(record.records[0]?.recordType) {
+			case RunType.Bot:
 				return -record.id;
-			case "world":
+			case RunType.World:
 				return record.id;
 			default:
 				return record.id;

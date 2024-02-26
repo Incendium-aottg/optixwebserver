@@ -23,17 +23,21 @@
 	</div>
 	<ul class="nav nav-tabs tab-set">
 		<li *ngIf="hasWebData()">
-			<button class="nav-link tab-header" [ngClass]="{'active': hasWebData()}" data-bs-toggle="tab" data-bs-target="#world">World Records</button>
+			<button class="nav-link tab-header" [ngClass]="{'active': !defaultBotTab()}" data-bs-toggle="tab" data-bs-target="#world" (click)="setTab('world')">
+				World Records
+			</button>
 		</li>
 		<li *ngIf="hasBotData()">
-			<button class="nav-link tab-header" [ngClass]="{'active': !hasWebData()}" data-bs-toggle="tab" data-bs-target="#bot">Bot Records</button>
+			<button class="nav-link tab-header" [ngClass]="{'active': defaultBotTab()}" data-bs-toggle="tab" data-bs-target="#bot" (click)="setTab('bot')">
+				Bot Records
+			</button>
 		</li>
 	</ul>
 	<div class="tab-content">
-		<div *ngIf="hasWebData()" class="tab-pane fade" [ngClass]="{'active show': hasWebData()}" id="world">
+		<div *ngIf="hasWebData()" class="tab-pane fade" [ngClass]="{'active show': !defaultBotTab()}" id="world">
 			<app-map-record-table [runs]="mapData?.wrRuns"></app-map-record-table>
 		</div>
-		<div *ngIf="hasBotData()" class="tab-pane fade" [ngClass]="{'active show': !hasWebData()}" id="bot">
+		<div *ngIf="hasBotData()" class="tab-pane fade" [ngClass]="{'active show': defaultBotTab()}" id="bot">
 			<app-map-record-table [runs]="mapData?.botRuns"></app-map-record-table>
 		</div>
 	</div>

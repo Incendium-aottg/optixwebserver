@@ -19,7 +19,7 @@ export class MapDetailsComponent {
 	displayAuthors: string|null = null
 	displayBotId: number|null = null
 	displayCompRatio: string|null = null
-	displayMapType: MapType|null = null
+	displayMapType: string|null = null
 	displayNotes: string|null = null
 	displayRating: string|null = null
 	downloadingMap = false
@@ -131,9 +131,9 @@ export class MapDetailsComponent {
 			let thirdTime = mapData.wrRuns[2].time
 			this.displayCompRatio = ((thirdTime - bestTime) / thirdTime).toFixed(3)
 		}
-		this.displayMapType = mapData && mapData.mapType !== MapType.Unlisted ? mapData.mapType : null
+		this.displayMapType = mapData && mapData.mapType !== MapType.Unlisted ? mapData.mapType : 'N/A'
 		this.displayNotes = mapData && mapData.notes ? mapData.notes : null
-		this.displayRating = mapData && mapData.botRating > 0 ? `${(mapData.botRating).toFixed(2)}/5` : null
+		this.displayRating = mapData && mapData.botRating > 0 ? `${(mapData.botRating).toFixed(2)}/5` : 'N/A'
 	}
 
 	setTab(tab: string) {

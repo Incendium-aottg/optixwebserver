@@ -20,7 +20,8 @@ import { BotRecordsComponent } from './content/bot-server/bot-records/bot-record
 import { RecordTablePageComponent } from './content/components/record-table-page/record-table-page.component';
 import { BotMapsComponent } from './content/bot-server/bot-maps/bot-maps.component';
 import { SafePipe } from './pipes/safe.pipe';
-import { MapPagesComponent } from './content/map-pages/map-pages.component';
+import { MapDetailsComponent } from './content/map-details/map-details.component';
+import { MapRecordTableComponent } from './content/components/map-record-table/map-record-table.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MapPagesComponent } from './content/map-pages/map-pages.component';
     RecordTablePageComponent,
     BotMapsComponent,
     SafePipe,
-    MapPagesComponent,
+    MapDetailsComponent,
+    MapRecordTableComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -48,6 +50,7 @@ import { MapPagesComponent } from './content/map-pages/map-pages.component';
     OptixRoutingModule,
     ToastrModule.forRoot({
       timeOut: 1500,
+      maxOpened: 1,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true
     }),

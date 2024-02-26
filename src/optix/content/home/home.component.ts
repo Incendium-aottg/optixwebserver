@@ -16,7 +16,7 @@ import { RecordsService } from '../../services/records-service/records.service';
 export class HomeComponent {
 	faCopy = faCopy;
 	faDownload = faDownload;
-	newestMap: MapScript|null =  null
+	newestMap: MapScript|null = null
 	newestLava: Run|null = null
 	newestSpeed: Run|null = null
 

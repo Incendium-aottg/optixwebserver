@@ -26,7 +26,6 @@ export class BotMapsComponent {
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
 		mapService.getBotMaps().pipe(take(1)).subscribe((all_maps) => {
-			console.log(all_maps)
 			// Create a list of authors
 			let uniqueAuthors = new Set<string>()
 			all_maps.forEach((next_map) => {
@@ -74,8 +73,8 @@ export class BotMapsComponent {
 		if (!this.downloadingMap) {
 			// Prevent double clicks and whatever
 			this.downloadingMap = true
+			this.toastr.info('Downloading');
 			this.mapService.getBotMapById(id).pipe(take(1)).subscribe((botMap: BotMap) => {
-				console.log(botMap)
 				const downloadLink = document.createElement('a');
 				downloadLink.href = URL.createObjectURL(new Blob([botMap.Data], { type: "text" }));
 				downloadLink.download = `${botMap.Name}.txt`

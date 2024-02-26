@@ -1,4 +1,4 @@
-import { MapType } from "@angular/compiler";
+import { MapType } from "../enums/map-type.enum";
 import { Author } from "./author.model";
 import { Run } from "./run.model";
 
@@ -7,6 +7,7 @@ export class MapData {
 	public botId!: number;
 	public botRating!: number;
 	public botRuns!: Run[];
+	public fileName!: string;
 	public id!: number;
 	public mapType!: MapType;
 	public name!: string;

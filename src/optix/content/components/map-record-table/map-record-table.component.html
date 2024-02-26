@@ -17,7 +17,7 @@
 				{{run.player}}
 			</td>
 			<td [ngClass]="{'even-row': i % 2 === 0, 'first-row': i === 0, 'second-row': i === 1, 'third-row': i === 2}">
-				<a [attr.href]="getLink(run)" placement="top" [ngbTooltip]="getToolTip(run)" class="heavy-shadow"
+				<a [attr.href]="getLink(run)" placement="top" [ngbTooltip]="getToolTip(run)" class="time"
 					[ngClass]="{'no-link': !isValidLink(run.verification), 'no-verification': run.verification === ''}">
 					{{run.time}}
 				</a>

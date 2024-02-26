@@ -24,18 +24,17 @@
 				<div class="map-list">
 					<div *ngFor="let nextMap of author.maps">
 						<div class="map-row">
-							<div class="copy">
+							<div class="map-name">
 								<div class="map-id">[{{nextMap[0]}}]</div>
-								<div class="link" (click)="copyMapScript(nextMap[0])">
-									<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+								<a class="link" [routerLink]="['/maps', getMapId(nextMap[0])]">
 									<div class="link-text">{{nextMap[1]}}</div>
-								</div>
+								</a>
 							</div>
 							<div class="link-group">
-								<a class="link stat-link" [routerLink]="['/maps', getMapId(nextMap[0])]">
-									<fa-icon class="map-button" [icon]="faChartSimple"></fa-icon>
-									<div class="link-text sub-link">Stats</div>
-								</a>
+								<div class="link copy-link" (click)="copyMapScript(nextMap[0])">
+									<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+									<div class="link-text sub-link">Copy</div>
+								</div>
 								<div class="link download" (click)="downloadFile(nextMap[0])">
 									<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 									<div class="link-text sub-link">Download</div>

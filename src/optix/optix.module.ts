@@ -24,38 +24,38 @@ import { MapDetailsComponent } from './content/map-details/map-details.component
 import { MapRecordTableComponent } from './content/components/map-record-table/map-record-table.component';
 
 @NgModule({
-  declarations: [
-    OptixComponent,
-    SidebarComponent,
-    HomeComponent,
-    WorldRecordsComponent,
-    ScoreboardComponent,
-    MapsComponent,
-    NotFoundComponent,
-    BotRecordsComponent,
-    RecordTablePageComponent,
-    BotMapsComponent,
-    SafePipe,
-    MapDetailsComponent,
-    MapRecordTableComponent,
-  ],
-  imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    FontAwesomeModule,
-    FormsModule,
-    HttpClientModule,
-    NgbModalModule,
-    NgbModule,
-    OptixRoutingModule,
-    ToastrModule.forRoot({
-      timeOut: 1500,
-      maxOpened: 1,
-      positionClass: 'toast-bottom-right',
-      preventDuplicates: true
-    }),
-  ],
-  providers: [],
-  bootstrap: [OptixComponent]
+	declarations: [
+		OptixComponent,
+		SidebarComponent,
+		HomeComponent,
+		WorldRecordsComponent,
+		ScoreboardComponent,
+		MapsComponent,
+		NotFoundComponent,
+		BotRecordsComponent,
+		RecordTablePageComponent,
+		BotMapsComponent,
+		SafePipe,
+		MapDetailsComponent,
+		MapRecordTableComponent,
+	],
+	imports: [
+		BrowserAnimationsModule,
+		BrowserModule,
+		FontAwesomeModule,
+		FormsModule,
+		HttpClientModule,
+		NgbModalModule,
+		NgbModule,
+		OptixRoutingModule,
+		ToastrModule.forRoot({
+			timeOut: 1500,
+			maxOpened: 1,
+			positionClass: 'toast-bottom-right',
+			preventDuplicates: true
+		}),
+	],
+	providers: [],
+	bootstrap: [OptixComponent]
 })
 export class OptixModule { }

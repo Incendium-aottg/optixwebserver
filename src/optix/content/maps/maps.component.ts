@@ -1,6 +1,6 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
-import { faChartSimple, faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight, faCopy, faDownload, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { AuthorMaps } from "../../models/author-maps.model";
@@ -13,17 +13,18 @@ import { MapService } from '../../services/map-service/map.service';
 	styleUrls: ['./maps.component.sass']
 })
 export class MapsComponent {
-	faChartSimple = faChartSimple;
 	faChevronRight = faChevronRight;
 	faCopy = faCopy;
 	faDownload = faDownload;
 	faPlay = faPlay;
 	fullMapList: AuthorMaps[] = [];
 	filteredMapList: AuthorMaps[] = [];
+	mapList: AuthorMaps[] = [];
 	searchString: string = "";
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private toastr: ToastrService) {
 		mapService.getMapsByAuthor().pipe(take(1)).subscribe((maps) => {
+			this.mapList = maps
 			this.fullMapList = maps;
 			this.filteredMapList = this.fullMapList
 		})

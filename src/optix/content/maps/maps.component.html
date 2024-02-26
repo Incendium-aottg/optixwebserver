@@ -27,19 +27,18 @@
 				<div class="map-list">
 					<div *ngFor="let map of author.maps" [id]="map.name">
 						<div class="map-links" [ngClass]="{'no-links': !map.fileName}">
-							<div [ngClass]="map.fileName ? 'copy' : 'no-copy'" (click)="map.fileName ? copyMapScript(map.fileName) : null">
-								<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+							<a class="map-name" [routerLink]="[map._id]">
 								<div>
 									{{map.name}}
 									<div class="map-subtitle">{{getMapSubtitle(map)}}</div>
 								</div>
-							</div>
+							</a>
 							<div class="link-group">
-								<a class="link stat-link" [routerLink]="[map._id]">
-									<fa-icon class="map-button" [icon]="faChartSimple"></fa-icon>
-									<div class="link-text">Stats</div>
-								</a>
-								<a [ngClass]="map.fileName ? 'link' : 'no-link'" target="_blank"
+								<div class="copy-link" [ngClass]="map.fileName ? 'link' : 'no-link'" (click)="map.fileName ? copyMapScript(map.fileName) : null">
+									<fa-icon class="map-button" [icon]="faCopy"></fa-icon>
+									<div class="link-text">Copy</div>
+								</div>
+								<a target="_blank" [ngClass]="map.fileName ? 'link' : 'no-link'"
 									[attr.href]="map.fileName ? getDownloadLink(map.fileName) : null" [download]="getDownloadFileName(map.fileName)">
 									<fa-icon class="map-button" [icon]="faDownload"></fa-icon>
 									<div class="link-text">Download</div>

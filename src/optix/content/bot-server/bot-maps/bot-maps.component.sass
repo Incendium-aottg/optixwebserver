@@ -59,10 +59,6 @@
 				justify-content: space-between
 				width: 100%
 
-				.copy
-					display: flex
-					min-width: 0
-
 				.download
 					display: inline
 					flex-shrink: 0
@@ -86,17 +82,22 @@
 				.link-group
 					flex-shrink: 0
 
-					.stat-link
+					.copy-link
+						display: inline
 						margin-right: 15px
 
 				.map-id
 					display: inline-block
 					width: 50px
 
+				.map-name
+					display: flex
+					min-width: 0
+
 @media (max-width:800px)
 	.author-panel .map-section .map-list .map-row
 		.link .sub-link
 			display: none
 
-		.link-group .stat-link
+		.link-group .copy-link
 			margin-right: 5px

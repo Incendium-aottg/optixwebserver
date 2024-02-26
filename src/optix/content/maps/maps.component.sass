@@ -70,44 +70,44 @@
 				font-weight: bold
 				width: 100%
 
-				.copy
-					display: flex
-					&:hover
-						cursor: pointer
-						text-decoration: underline
-
-					.map-subtitle
-						color: #59bcff
-						display: inline
-
 				.link-group
 					flex-shrink: 0
 
 					.link
 						color: #0094ff
+						text-decoration: none
 						&:hover
-							cursor: pointer
 							text-decoration: underline
+							cursor: pointer
 
 					.link-text
 						display: inline
-						text-decoration: none
 					
-					.stat-link
+					.copy-link
+						display: inline
 						margin-right: 15px
 
 				.map-button
-						margin: 0 10px
+					margin: 0 10px
 
-				.no-copy
+				.map-name
 					display: flex
+					color: #0094ff
+					text-decoration: none
+					&:hover
+						text-decoration: underline
 
 					.map-subtitle
-						color: #555555
+						color: #59bcff
 						display: inline
 			
 			.no-link
 				color: #555555
+				text-decoration: underline
+
+				.map-subtitle
+					color: #555555
+					display: inline
 
 			.notes
 				color: #bbbbbb
@@ -121,5 +121,5 @@
 		.link-text
 			display: none
 
-		.stat-link
+		.copy-link
 			margin-right: 5px

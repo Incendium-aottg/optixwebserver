@@ -133,7 +133,7 @@ export class MapDetailsComponent {
 		}
 		this.displayMapType = mapData && mapData.mapType !== MapType.Unlisted ? mapData.mapType : 'N/A'
 		this.displayNotes = mapData && mapData.notes ? mapData.notes : null
-		this.displayRating = mapData && mapData.botRating > 0 ? `${(mapData.botRating).toFixed(2)}/5` : 'N/A'
+		this.displayRating = mapData && mapData.botRating > 0 ? `${(mapData.botRating).toFixed(2)}/5 (${mapData.botRatingCount} Votes)` : 'N/A'
 	}
 
 	setTab(tab: string) {

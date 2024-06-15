@@ -20,7 +20,7 @@ export class MapService {
 	}
 
 	getBotMapById(id: string): Observable<BotMap> {
-		return this.http.get<BotMap>(`${this.urlRoot}bot/map/${id}`)
+		return this.http.get<BotMap>(`${this.urlRoot}bot/maps/${id}`)
 	}
 
 	getMapsByAuthor(): Observable<AuthorMaps[]> {

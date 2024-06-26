@@ -1,8 +1,8 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { combineLatest, mergeMap, take, tap } from 'rxjs';
+import { combineLatest, filter, mergeMap, take, tap } from 'rxjs';
 import { MapType } from 'src/optix/enums/map-type.enum';
 import { RunType } from 'src/optix/enums/run-type.enum';
 import { BotMap } from 'src/optix/models/bot-map.model';
@@ -28,7 +28,7 @@ export class MapDetailsComponent {
 	public mapData: MapData|null = null
 
 	constructor(private clipboard: Clipboard, private mapService: MapService, private route: ActivatedRoute, private router: Router, private toastr: ToastrService) {
-		combineLatest([
+		let mapDataSubscription = combineLatest([
 			route.params.pipe(
 				tap((param: any) => {
 					if (this.negativeId === null) {
@@ -45,10 +45,19 @@ export class MapDetailsComponent {
 			this.setDisplayData(mapData)
 			if (params['tab'] === 'bot' || this.negativeId) {
 				this.negativeId = false
-				this.router.navigate([`../${mapData.id}`], { relativeTo: this.route, queryParams: { tab: 'bot' }, queryParamsHandling: 'merge' });
+				this.router.navigate([`../${mapData.id}`], { relativeTo: this.route, replaceUrl: true, queryParams: { tab: 'bot' }, queryParamsHandling: 'merge' });
 			} else {
-				this.router.navigate([`../${mapData.id}`], { relativeTo: this.route});
+				this.router.navigate([`../${mapData.id}`], { relativeTo: this.route, replaceUrl: true});
 			}
+		})
+		// Remember the url so we know if it changes
+		let pageRoute = this.router.url
+		router.events.pipe(
+			filter(event => this.router.url !== pageRoute && event instanceof NavigationEnd)
+		  ).subscribe((val) => {
+			// Prevent the page from continueing to load even when we navigate away.
+			// If the page loads successfully, it will trigger a 'router.navigate' and send us back.
+			mapDataSubscription.unsubscribe()
 		})
 	}
 
@@ -138,7 +147,7 @@ export class MapDetailsComponent {
 
 	setTab(tab: string) {
 		this.defaultTab = tab as RunType
-		this.router.navigate([], { relativeTo: this.route, queryParams: { tab: this.defaultTab }, queryParamsHandling: 'merge' });
+		this.router.navigate([], { relativeTo: this.route, replaceUrl: true, queryParams: { tab: this.defaultTab }, queryParamsHandling: 'merge' });
 	}
 
 	use404Image() {

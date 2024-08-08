@@ -58,6 +58,10 @@ export class RecordTablePageComponent implements OnChanges {
 		}
 	}
 
+	public formatTime(time: any) {
+		return parseFloat(time).toFixed(2)
+	}
+
 	getLink(record: Run) {
 		return this.isValidLink(record.verification) ? record.verification : null
 	}

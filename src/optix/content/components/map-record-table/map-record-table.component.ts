@@ -9,6 +9,10 @@ import { Run } from 'src/optix/models/run.model';
 export class MapRecordTableComponent {
 	@Input() runs: Run[] | undefined = [];
 
+	public formatTime(time: any) {
+		return parseFloat(time).toFixed(2)
+	}
+
 	getLink(record: Run) {
 		return this.isValidLink(record.verification) ? record.verification : null
 	}

@@ -19,7 +19,7 @@
 			<td [ngClass]="{'even-row': i % 2 === 0, 'first-row': i === 0, 'second-row': i === 1, 'third-row': i === 2}">
 				<a [attr.href]="getLink(run)" placement="top" [ngbTooltip]="getToolTip(run)" class="time" target="_blank"
 					[ngClass]="{'no-link': !isValidLink(run.verification), 'no-verification': run.verification === ''}">
-					{{run.time}}
+					{{run.time.toFixed(2)}}
 				</a>
 			</td>
 		</tr>

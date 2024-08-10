@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row title-bar">
+		<h1 class="col-lg">{{getMapName()}}</h1>
+	</div>
+	<div class="row overview">
+		<div class="col-lg-7">
+			<img [src]="getMapImageLink()" class="image" (error)="use404Image()">
+		</div>
+		<div class="col-lg-5">
+			<button class="btn btn-primary overview-button" type="button" (click)="copyMapScript()">
+				<div class="overview-text">Copy to Clipboard</div>
+			</button>
+			<button class="btn btn-primary overview-button" type="button" (click)="downloadMapScript()">
+				<div class="overview-text">Download</div>
+			</button>
+			<div class="overview-text" [ngClass]="{'no-data': displayAuthors === null}"><b>Authors:</b> {{displayAuthors}}</div>
+			<div class="overview-text" [ngClass]="{'no-data': displayNotes === null}"><b>Notes:</b> {{displayNotes}}</div>
+			<div class="overview-text" [ngClass]="{'no-data': displayBotId === null}"><b>Bot Id:</b> {{displayBotId}}</div>
+			<div class="overview-text" [ngClass]="{'no-data': displayRating === null}"><b>Rating:</b> {{displayRating}}</div>
+			<div class="overview-text" [ngClass]="{'no-data': displayMapType === null}"><b>Map Type:</b> {{displayMapType}}</div>
+			<div class="overview-text" [ngClass]="{'no-data': displayCompRatio === null}"><b>Competitiveness Ratio:</b> {{displayCompRatio}}</div>
+		</div>
+	</div>
+	<ul class="nav nav-tabs tab-set">
+		<li *ngIf="hasWebData()">
+			<button class="nav-link tab-header" [ngClass]="{'active': !defaultBotTab()}" data-bs-toggle="tab" data-bs-target="#world" (click)="setTab('world')">
+				World Records
+			</button>
+		</li>
+		<li *ngIf="hasBotData()">
+			<button class="nav-link tab-header" [ngClass]="{'active': defaultBotTab()}" data-bs-toggle="tab" data-bs-target="#bot" (click)="setTab('bot')">
+				Bot Records
+			</button>
+		</li>
+	</ul>
+	<div class="tab-content">
+		<div *ngIf="hasWebData()" class="tab-pane fade" [ngClass]="{'active show': !defaultBotTab()}" id="world">
+			<app-map-record-table [runs]="mapData?.wrRuns"></app-map-record-table>
+		</div>
+		<div *ngIf="hasBotData()" class="tab-pane fade" [ngClass]="{'active show': defaultBotTab()}" id="bot">
+			<app-map-record-table [runs]="mapData?.botRuns"></app-map-record-table>
+		</div>
+	</div>
+</div>

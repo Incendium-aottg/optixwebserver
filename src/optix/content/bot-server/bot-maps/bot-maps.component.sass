@@ -1,0 +1,103 @@
+.title-bar
+	margin-top: 70px
+
+	h1
+		font-size: 50px
+		font-weight: normal
+
+	.title
+		display: inline
+
+.author-panel
+	margin-top: 15px
+
+	.author
+		color: #ffff00
+		display: inline-block
+		text-decoration: none
+		font-size: 26px
+		font-weight: bold
+		&:hover
+			text-decoration: underline
+		&[aria-expanded="true"]
+			.arrow-icon
+				transform: rotate(90deg)
+		.arrow-icon
+			color: #c0c0c0
+			display: inline-block
+			margin-right: 10px
+			-webkit-transition: all 0.1s linear
+
+	.map-section
+		max-width: 900px
+		padding-bottom: 5px
+		position: relative
+		transition: 0.15s
+
+		.collapsible
+			bottom: 0
+			height: 100%
+			left: -4px
+			padding: 6px 1px 6px 0
+			position: absolute
+			top: 0
+			width: 26px
+
+			.line
+				background-color: #c0c0c0
+				border-radius: 3px
+				height: 100%
+				margin: 0 auto
+				width: 3px
+
+		.map-list
+			margin-left: 30px
+			padding-top: 2px
+
+			.map-row
+				display: flex
+				justify-content: space-between
+				width: 100%
+
+				.download
+					display: inline
+					flex-shrink: 0
+
+				.link
+					color: #0094ff
+					font-size: 22px
+					font-weight: bold
+					text-decoration: none
+
+					.link-text
+						display: inline
+						word-break: break-all
+						&:hover
+							cursor: pointer
+							text-decoration: underline
+
+					.map-button
+						margin: 0 10px
+
+				.link-group
+					flex-shrink: 0
+
+					.copy-link
+						display: inline
+						margin-right: 15px
+
+				.map-id
+					display: inline-block
+					width: 50px
+
+				.map-name
+					display: flex
+					min-width: 0
+
+@media (max-width:800px)
+	.author-panel .map-section .map-list .map-row
+		.link .sub-link
+			display: none
+
+		.link-group .copy-link
+			margin-right: 5px

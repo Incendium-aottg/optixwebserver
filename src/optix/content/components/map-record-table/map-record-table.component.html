@@ -1,0 +1,27 @@
+<table class="table table-dark">
+	<thead>
+		<tr>
+			<th scope="col" class="header rank-col">Rank</th>
+			<th scope="col" class="header">Racer</th>
+			<th scope="col" class="header time-col">Time</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let run of runs; index as i">
+			<th scope="row" [ngClass]="{'even-row': i % 2 === 0, 'first-row': i === 0, 'second-row': i === 1, 'third-row': i === 2,}">
+				<div>
+					{{i + 1}}
+				</div>
+			</th>
+			<td [ngClass]="{'even-row': i % 2 === 0, 'first-row': i === 0, 'second-row': i === 1, 'third-row': i === 2,}">
+				{{run.player}}
+			</td>
+			<td [ngClass]="{'even-row': i % 2 === 0, 'first-row': i === 0, 'second-row': i === 1, 'third-row': i === 2}">
+				<a [attr.href]="getLink(run)" placement="top" [ngbTooltip]="getToolTip(run)" class="time" target="_blank"
+					[ngClass]="{'no-link': !isValidLink(run.verification), 'no-verification': run.verification === ''}">
+					{{formatTime(run.time)}}
+				</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

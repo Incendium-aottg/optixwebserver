@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './content/sidebar/sidebar.component';
 
 @Component({
 	selector: 'optix-root',

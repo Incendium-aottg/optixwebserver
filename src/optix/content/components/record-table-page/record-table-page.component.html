@@ -1,0 +1,64 @@
+<div class="container page">
+	<div class="row title-bar">
+		<h1 class="col-lg-6">{{tableName}}</h1>
+		<div class="col-lg-6 input-bar">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" placeholder="Search by Map/Author" [(ngModel)]="searchString" (keyup.enter)="filterRecords()">
+				<button class="btn btn-primary" type="button" (click)="filterRecords()">
+					<fa-icon [icon]="faPlay"></fa-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div>
+		<table class="world-records table table-dark">
+			<thead>
+				<tr class="center">
+					<th scope="col" class="header">Author</th>
+					<th scope="col" class="header">Map Name</th>
+					<th scope="col" colspan="2" class="first-header shadow">First</th>
+					<th scope="col" colspan="2" class="second-header shadow">Second</th>
+					<th scope="col" colspan="2" class="third-header shadow">Third</th>
+				</tr>
+			</thead>
+			<tbody>
+				<ng-container *ngFor="let authorRecord of filteredRecordsList; index as i">
+					<tr *ngFor="let mapRecord of authorRecord.maps; index as j" class="record-rows">
+						<th scope="row" class="center author-column" [ngClass]="{'hide': j !== 0}" [attr.rowspan]="authorRecord.maps.length">
+							<div [ngClass]="{'scroll-author': authorRecord.maps.length !== 1}">
+								{{authorRecord.author}}
+							</div>
+						</th>
+						<td [ngClass]="{'even-row': i % 2 === 0}">
+							<a class="map-link" [routerLink]="['/maps', getMapId(mapRecord)]">{{mapRecord.map}}</a>
+						</td>
+						<td class="center first-row shadow">{{mapRecord.records[0]?.player}}</td>
+						<td class="center first-row shadow">
+							<a *ngIf="mapRecord.records[0]" [attr.href]="getLink(mapRecord.records[0])" placement="top" [ngbTooltip]="getToolTip(mapRecord.records[0])"
+								[ngClass]="{'no-link': !isValidLink(mapRecord.records[0].verification), 'no-verification': mapRecord.records[0].verification === ''}"
+								target="_blank">
+								{{formatTime(mapRecord.records[0].time)}}
+							</a>
+						</td>
+						<td class="center second-row shadow">{{mapRecord.records[1]?.player}}</td>
+						<td class="center second-row shadow">
+							<a *ngIf="mapRecord.records[1]" [attr.href]="getLink(mapRecord.records[1])" placement="top" [ngbTooltip]="getToolTip(mapRecord.records[1])"
+								[ngClass]="{'no-link': !isValidLink(mapRecord.records[1].verification), 'no-verification': mapRecord.records[1].verification === ''}"
+								target="_blank">
+								{{formatTime(mapRecord.records[1].time)}}
+							</a>
+						</td>
+						<td class="center third-row shadow">{{mapRecord.records[2]?.player}}</td>
+						<td class="center third-row shadow">
+							<a *ngIf="mapRecord.records[2]" [attr.href]="getLink(mapRecord.records[2])" placement="top" [ngbTooltip]="getToolTip(mapRecord.records[2])"
+								[ngClass]="{'no-link': !isValidLink(mapRecord.records[2].verification), 'no-verification': mapRecord.records[2].verification === ''}"
+								target="_blank">
+								{{formatTime(mapRecord.records[2].time)}}
+							</a>
+						</td>
+					</tr>
+				</ng-container>
+			</tbody>
+		</table>
+	</div>
+</div>

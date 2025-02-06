@@ -1,0 +1,70 @@
+<div class="login-register-wrapper">
+	<div>
+		<ng-container [ngTemplateOutlet]="isLoginPage() ? loginTitle : isRegisterPage() ? registerTitle : resetTitle"></ng-container>
+		<ng-template #loginTitle>
+			<h1>Login</h1>
+		</ng-template>
+		<ng-template #registerTitle>
+			<h1>Register</h1>
+		</ng-template>
+		<ng-template #resetTitle>
+			<h1>Reset Password</h1>
+		</ng-template>
+		<form>
+			<div class="row form-row">
+				<label class="col-sm-5">Username:</label>
+				<div class="col-sm-7">
+					<input class="form-control">
+				</div>
+			</div>
+			<div class="row form-row">
+				<label class="col-sm-5">{{isLoginPage() ? "Password:" : "New Password:"}}</label>
+				<div class="col-sm-7">
+					<input class="form-control" type="password">
+				</div>
+			</div>
+			<div *ngIf="isLoginPage(); else registerFields">
+				<div class="row form-row checkbox-row">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" id="rememberMe">
+						<label class="form-check-label" for="rememberMe">Remember Me</label>
+					</div>
+				</div>
+			</div>
+			<ng-template #registerFields>
+				<div class="row form-row">
+					<label class="col-sm-5">Confirm Password:</label>
+					<div class="col-sm-7">
+						<input class="form-control" type="password">
+					</div>
+				</div>
+				<div class="row final-form-row">
+					<label class="col-sm-5">Registration Token:</label>
+					<div class="col-sm-7">
+						<input class="form-control">
+					</div>
+				</div>
+			</ng-template>
+			<ng-container [ngTemplateOutlet]="isLoginPage() ? loginButtons : isRegisterPage() ? registerButtons : resetButtons"></ng-container>
+			<ng-template #loginButtons>
+				<div class="buttons">
+					<button type="button" class="btn btn-primary form-button">Login</button>
+					<button [routerLink]="['/login/register']" type="button" class="btn btn-secondary form-button">No Account? Register!</button>
+					<button [routerLink]="['/login/reset']" type="button" class="btn btn-secondary form-button">Reset Password</button>
+				</div>
+			</ng-template>
+			<ng-template #registerButtons>
+				<div class="buttons">
+					<button type="button" class="btn btn-primary form-button">Register</button>
+					<button [routerLink]="['/login']" type="button" class="btn btn-secondary form-button">Already registered? Login!</button>
+				</div>
+			</ng-template>
+			<ng-template #resetButtons>
+				<div class="buttons">
+					<button type="button" class="btn btn-primary form-button">Reset & Login</button>
+					<button [routerLink]="['/login']" type="button" class="btn btn-secondary form-button">Back</button>
+				</div>
+			</ng-template>
+		</form>
+	</div>
+</div>

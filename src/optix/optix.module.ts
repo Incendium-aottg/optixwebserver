@@ -11,7 +11,7 @@ import { BotRecordsComponent } from './content/bot-server/bot-records/bot-record
 import { MapRecordTableComponent } from './content/components/map-record-table/map-record-table.component';
 import { RecordTablePageComponent } from './content/components/record-table-page/record-table-page.component';
 import { HomeComponent } from './content/home/home.component';
-import { LoginComponent } from './content/login/login.component';
+import { LoginRegisterComponent } from './content/login-register/login-register.component';
 import { MapDetailsComponent } from './content/map-details/map-details.component';
 import { MapsComponent } from './content/maps/maps.component';
 import { NotFoundComponent } from './content/not-found/not-found.component';
@@ -35,7 +35,7 @@ import { SafePipe } from './pipes/safe.pipe';
 		RecordTablePageComponent,
 		BotMapsComponent,
 		SafePipe,
-		LoginComponent,
+		LoginRegisterComponent,
 		MapDetailsComponent,
 		MapRecordTableComponent,
 	],

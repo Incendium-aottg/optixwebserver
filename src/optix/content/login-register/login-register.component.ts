@@ -27,7 +27,7 @@ export class LoginRegisterComponent {
 		return this.pageState === LoginPageState.Register;
 	}
 
-	isForgotPage() {
+	isResetPage() {
 		return this.pageState === LoginPageState.Reset;
 	}
 

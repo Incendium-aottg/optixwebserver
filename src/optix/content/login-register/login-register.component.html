@@ -2,13 +2,20 @@
 	<div>
 		<ng-container [ngTemplateOutlet]="isLoginPage() ? loginTitle : isRegisterPage() ? registerTitle : resetTitle"></ng-container>
 		<ng-template #loginTitle>
-			<h1>Login</h1>
+			<div class="title-wrapper">
+				<h1>Login</h1>
+			</div>
 		</ng-template>
 		<ng-template #registerTitle>
-			<h1>Register</h1>
+			<div class="title-wrapper">
+				<h1>Register</h1>
+			</div>
 		</ng-template>
 		<ng-template #resetTitle>
-			<h1>Reset Password</h1>
+			<div class="title-wrapper">
+				<h1>Reset Password</h1>
+				<p class="subtitle">DM Incendium for a Registration Token if you forgot your password</p>
+			</div>
 		</ng-template>
 		<form>
 			<div class="row form-row">

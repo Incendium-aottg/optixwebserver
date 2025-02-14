@@ -1,5 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { ToastrService } from 'ngx-toastr';
+import { take } from 'rxjs';
+import { LoginService } from 'src/optix/services/login-service/login.service';
 
 @Component({
 	selector: 'optix-sidebar',
@@ -21,6 +25,9 @@ import { Component, HostListener } from '@angular/core';
 export class SidebarComponent {
 	sidebarOpen = false
 	mobileThreshold = 600
+
+	constructor(private cookieService: CookieService, private loginService: LoginService, private toastr: ToastrService) {}
+
 	@HostListener('window:resize', ['$event'])
 
 	closeSidebar() {
@@ -31,6 +38,23 @@ export class SidebarComponent {
 		if (this.sidebarOpen || window.innerWidth > this.mobileThreshold)
 			return 'open'
 		return 'closed'
+	}
+
+	logout() {
+		this.loginService.logout().pipe(take(1)).subscribe({
+			next: () => {
+				localStorage.removeItem('username');
+				this.toastr.success("Logout successful!");
+			},
+			error: (err) => {
+				console.log(err)
+				this.toastr.error(err.error);
+			}
+		});
+	}
+
+	isLoggedIn() {
+		return localStorage.getItem('username') === null
 	}
 
 	isVisible() {

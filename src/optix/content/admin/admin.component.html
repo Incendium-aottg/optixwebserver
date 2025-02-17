@@ -1,0 +1,15 @@
+<div class="container">
+	<div>
+		<div>
+			Generate registration token for
+			<div class="dropdown-wrapper player-dropdown">
+				<select class="form-control player-select" data-placeholder="player"></select>
+			</div>
+			with role
+			<div class="dropdown-wrapper role-dropdown">
+				<select class="form-control role-select" data-placeholder="role"></select>
+			</div>
+		</div>
+		<button class="btn btn-primary form-button" [disabled]="canGenerateToken()" (click)="generateToken()">Generate Token</button>
+	</div>
+</div>

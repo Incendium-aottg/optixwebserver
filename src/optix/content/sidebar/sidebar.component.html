@@ -33,6 +33,14 @@
 				<h2>Optix Bot Maps</h2>
 			</div>
 		</a>
+		<div *ngIf="isModOrAdmin()">
+			<span class="divider"></span>
+			<a [routerLink]="['/admin']" (click)="closeSidebar()">
+				<div class="link">
+					<h2>Admin</h2>
+				</div>
+			</a>
+		</div>
 	</div>
 	<div class="footer">
 		<div class="spacer"></div>

@@ -1,5 +1,5 @@
 import { Clipboard } from '@angular/cdk/clipboard';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { faCopy, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
@@ -13,7 +13,7 @@ import { RecordsService } from '../../services/records-service/records.service';
 	templateUrl: './home.component.html',
 	styleUrls: ['./home.component.sass']
 })
-export class HomeComponent {
+export class HomeComponent{
 	faCopy = faCopy;
 	faDownload = faDownload;
 	newestMap: MapScript|null = null

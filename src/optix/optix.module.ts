@@ -21,6 +21,7 @@ import { WorldRecordsComponent } from './content/world-records/world-records.com
 import { OptixComponent } from './optix.component';
 import { OptixRoutingModule } from './optix-routing.module';
 import { SafePipe } from './pipes/safe.pipe';
+import { AdminComponent } from './content/admin/admin.component';
 
 @NgModule({
 	declarations: [
@@ -38,6 +39,7 @@ import { SafePipe } from './pipes/safe.pipe';
 		LoginRegisterComponent,
 		MapDetailsComponent,
 		MapRecordTableComponent,
+  AdminComponent,
 	],
 	imports: [
 		BrowserAnimationsModule,

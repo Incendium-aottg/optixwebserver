@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
-import { CookieService } from 'ngx-cookie-service';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { LoginPageState } from 'src/optix/enums/login-page-state.enum';
@@ -24,11 +23,11 @@ export class LoginRegisterComponent implements AfterViewInit{
 	});
 	submitted: boolean = false;
 
-	constructor(private router: Router, private cookieService: CookieService, private loginService: LoginService, private toastr: ToastrService) {
+	constructor(private router: Router, private loginService: LoginService, private toastr: ToastrService) {
 		// Redirect if we are already logged in
-		// if (localStorage.getItem('username') !== null) {
-		// 	this.router.navigate(['/worldrecords'])
-		// }
+		if (localStorage.getItem('username') !== null) {
+			this.router.navigate(['/worldrecords'])
+		}
 		this.updatePageState();
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
@@ -87,8 +86,11 @@ export class LoginRegisterComponent implements AfterViewInit{
 		switch (this.pageState) {
 			case LoginPageState.Login:
 				this.loginService.login(loginDetails).pipe(take(1)).subscribe({
-					next: () => {
+					next: (response) => {
+						console.log(response)
 						localStorage.setItem('username', loginDetails.username);
+						localStorage.setItem('userID', response.body.userID);
+						localStorage.setItem('role', response.body.role);
 						this.toastr.success("Login successful!");
 						this.submitted = false;
 						this.router.navigate(['/worldrecords'])

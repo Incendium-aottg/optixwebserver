@@ -1,8 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, HostListener } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
+import { Role } from 'src/optix/enums/role.enum';
 import { LoginService } from 'src/optix/services/login-service/login.service';
 
 @Component({
@@ -26,7 +27,7 @@ export class SidebarComponent {
 	sidebarOpen = false
 	mobileThreshold = 600
 
-	constructor(private cookieService: CookieService, private loginService: LoginService, private toastr: ToastrService) {}
+	constructor(private router: Router, private loginService: LoginService, private toastr: ToastrService) {}
 
 	@HostListener('window:resize', ['$event'])
 
@@ -40,21 +41,12 @@ export class SidebarComponent {
 		return 'closed'
 	}
 
-	logout() {
-		this.loginService.logout().pipe(take(1)).subscribe({
-			next: () => {
-				localStorage.removeItem('username');
-				this.toastr.success("Logout successful!");
-			},
-			error: (err) => {
-				console.log(err)
-				this.toastr.error(err.error);
-			}
-		});
-	}
-
 	isLoggedIn() {
 		return localStorage.getItem('username') === null
+	}
+
+	isModOrAdmin() {
+		return [Role.Admin, Role.Mod].includes(localStorage.getItem('role') as Role)
 	}
 
 	isVisible() {
@@ -63,6 +55,20 @@ export class SidebarComponent {
 
 	lockScroll() {
 		return this.sidebarOpen && window.innerWidth <= this.mobileThreshold
+	}
+
+	logout() {
+		this.loginService.logout().pipe(take(1)).subscribe({
+			next: () => {
+				localStorage.clear();
+				this.toastr.success("Logout successful!");
+				this.router.navigate(['/worldrecords'])
+			},
+			error: (err) => {
+				console.log(err)
+				this.toastr.error(err.error);
+			}
+		});
 	}
 
 	toggleSidebar() {

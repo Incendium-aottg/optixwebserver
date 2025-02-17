@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './content/admin/admin.component';
 import { BotMapsComponent } from './content/bot-server/bot-maps/bot-maps.component';
 import { BotRecordsComponent } from './content/bot-server/bot-records/bot-records.component';
 import { HomeComponent } from './content/home/home.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
 		{ path: 'register', pathMatch: 'full', component: LoginRegisterComponent },
 		{ path: 'reset', pathMatch: 'full', component: LoginRegisterComponent },
 	] },
+	{ path: 'admin', pathMatch: 'full', component: AdminComponent },
 	{ path: '404', pathMatch: 'full',  component: NotFoundComponent },
 	{ path: '**', pathMatch: 'full', redirectTo: '/404'}
 ];

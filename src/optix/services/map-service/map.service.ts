@@ -5,15 +5,15 @@ import { BotMap } from 'src/optix/models/bot-map.model';
 import { MapData } from 'src/optix/models/map-data.model';
 import { MapScript } from 'src/optix/models/map-script.model';
 import { AuthorMaps } from "../../models/author-maps.model";
+import { ConfigService } from '../config-service/config.service';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class MapService {
-	urlRoot = "https://www.aottgracing.com/api/"
+	urlRoot = ConfigService.getURLRoot();
 
-	constructor(private http: HttpClient) {
-	}
+	constructor(private http: HttpClient) {}
 
 	getBotMaps(): Observable<string[][]> {
 		return this.http.get<string[][]>(`${this.urlRoot}bot/maps`)

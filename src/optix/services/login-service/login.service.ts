@@ -12,6 +12,10 @@ export class LoginService {
 
 	constructor(private http: HttpClient) {}
 
+	getCSRF(): Observable<any> {
+		return this.http.get(`${this.urlRoot}csrftoken`, {withCredentials: true})
+	}
+
 	login(loginDetails: LoginDTO): Observable<any> {
 		return this.http.post<any>(`${this.urlRoot}login`, loginDetails, {observe: 'response', withCredentials: true})
 	}

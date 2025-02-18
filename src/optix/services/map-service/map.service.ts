@@ -24,7 +24,7 @@ export class MapService {
 	}
 
 	getMapsByAuthor(): Observable<AuthorMaps[]> {
-		return this.http.get<AuthorMaps[]>(`${this.urlRoot}author/allmaps`)
+		return this.http.get<AuthorMaps[]>(`${this.urlRoot}author/maps`)
 	}
 
 	getMapScript(fileName: string): Observable<any> {

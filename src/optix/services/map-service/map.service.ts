@@ -23,6 +23,10 @@ export class MapService {
 		return this.http.get<BotMap>(`${this.urlRoot}bot/maps/${id}`)
 	}
 
+	getMaps(): Observable<MapScript[]> {
+		return this.http.get<MapScript[]>(`${this.urlRoot}maps`)
+	}
+
 	getMapsByAuthor(): Observable<AuthorMaps[]> {
 		return this.http.get<AuthorMaps[]>(`${this.urlRoot}author/maps`)
 	}

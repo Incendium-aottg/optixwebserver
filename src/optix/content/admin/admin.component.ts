@@ -1,8 +1,10 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Choices from 'choices.js';
+import { ToastrService } from 'ngx-toastr';
 import { Role } from 'src/optix/enums/role.enum';
 import { Player } from 'src/optix/models/player.model';
+import { AdminService } from 'src/optix/services/admin-service/admin.service';
 import { RecordsService } from 'src/optix/services/records-service/records.service';
 
 @Component({
@@ -15,7 +17,10 @@ export class AdminComponent implements AfterViewInit {
 	playerDropdown: Choices | null = null;
 	roleDropdown: Choices | null = null;
 
-	constructor(private recordsService: RecordsService, private router: Router) {
+	generatingToken = false;
+	registrationToken = '';
+
+	constructor(private adminService: AdminService, private recordsService: RecordsService, private router: Router, private toastr: ToastrService) {
 		// Restrict access
 		if (![Role.Admin, Role.Mod].includes(localStorage.getItem('role') as Role)) {
 			this.router.navigate(['/404'])
@@ -35,21 +40,39 @@ export class AdminComponent implements AfterViewInit {
 			searchResultLimit: -1
 		});
 		this.roleDropdown = new Choices(document.querySelector('.role-select')!, {
-			choices: Object.values(Role).map(role => ({value: role, label: role})),
+			choices: [
+				{label: Role.User, value: Role.User},
+				{label: Role.Mod, value: Role.Mod}
+			],
 			fuseOptions: {
 				threshold: 0.1
 			},
 			itemSelectText: '',
 			searchFields: ['label'],
-			searchResultLimit: -1
+			searchResultLimit: -1,
+			shouldSort: false
 		});
 	}
 
 	canGenerateToken(): boolean {
-		return this.playerDropdown?.getValue() == undefined || this.roleDropdown?.getValue() == undefined
+		return this.generatingToken == false && this.playerDropdown?.getValue() != undefined && this.roleDropdown?.getValue() != undefined
 	}
 
 	generateToken() {
-		console.log(this.playerDropdown?.getValue())
+		this.generatingToken = true;
+		this.adminService.generateToken({
+			id: +this.playerDropdown?.getValue(true)!,
+			role: this.roleDropdown?.getValue(true) as Role
+		}).subscribe({
+			next: (response) => {
+				this.registrationToken = response
+				this.toastr.success("Token successfully generated!");
+				this.generatingToken = false;
+			},
+			error: (err) => {
+				this.toastr.error(err.error);
+				this.generatingToken = false;
+			}
+		});
 	}
 }

@@ -87,7 +87,6 @@ export class LoginRegisterComponent implements AfterViewInit{
 			case LoginPageState.Login:
 				this.loginService.login(loginDetails).pipe(take(1)).subscribe({
 					next: (response) => {
-						console.log(response)
 						localStorage.setItem('username', loginDetails.username);
 						localStorage.setItem('userID', response.body.userID);
 						localStorage.setItem('role', response.body.role);
@@ -96,7 +95,6 @@ export class LoginRegisterComponent implements AfterViewInit{
 						this.router.navigate(['/worldrecords'])
 					},
    					error: (err) => {
-						console.log(err)
 						this.toastr.error(err.error);
 						this.submitted = false;
 					}
@@ -111,7 +109,6 @@ export class LoginRegisterComponent implements AfterViewInit{
 						this.submitted = false;
 					},
    					error: (err) => {
-						console.log(err)
 						this.toastr.error(err.error);
 						this.submitted = false;
 					}
@@ -126,7 +123,6 @@ export class LoginRegisterComponent implements AfterViewInit{
 						this.submitted = false;
 					},
    					error: (err) => {
-						console.log(err)
 						this.toastr.error(err.error);
 						this.submitted = false;
 					}

@@ -65,7 +65,6 @@ export class SidebarComponent {
 				this.router.navigate(['/worldrecords'])
 			},
 			error: (err) => {
-				console.log(err)
 				this.toastr.error(err.error);
 			}
 		});

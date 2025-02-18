@@ -10,6 +10,9 @@
 				<select class="form-control role-select" data-placeholder="role"></select>
 			</div>
 		</div>
-		<button class="btn btn-primary form-button" [disabled]="canGenerateToken()" (click)="generateToken()">Generate Token</button>
+		<button class="btn btn-primary button" [disabled]="!canGenerateToken()" (click)="generateToken()">Generate Token</button>
+		<div class="token-wrapper">
+			<div *ngIf="registrationToken">Generated registration token: {{registrationToken}}</div>
+		</div>
 	</div>
 </div>

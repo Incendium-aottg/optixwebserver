@@ -13,6 +13,6 @@ export class AdminService {
 	constructor(private http: HttpClient) {}
 
 	generateToken(player: Player): Observable<any>{
-		return this.http.post(`${this.urlRoot}admin/generateToken`, player)
+		return this.http.post(`${this.urlRoot}admin/generatetoken`, player, {responseType: 'text', withCredentials: true})
 	}
 }

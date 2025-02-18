@@ -1,18 +1,66 @@
 <div class="container">
-	<div>
+	<div *ngIf="isAdmin()" class="admin-action">
 		<div>
 			Generate registration token for
-			<div class="dropdown-wrapper player-dropdown">
-				<select class="form-control player-select" data-placeholder="player"></select>
+			<div class="dropdown-wrapper token-input player-dropdown">
+				<select class="form-control token-player-select" data-placeholder="player"></select>
 			</div>
 			with role
-			<div class="dropdown-wrapper role-dropdown">
-				<select class="form-control role-select" data-placeholder="role"></select>
+			<div class="dropdown-wrapper token-input role-dropdown">
+				<select class="form-control token-role-select" data-placeholder="role"></select>
 			</div>
 		</div>
 		<button class="btn btn-primary button" [disabled]="!canGenerateToken()" (click)="generateToken()">Generate Token</button>
 		<div class="token-wrapper">
 			<div *ngIf="registrationToken">Generated registration token: {{registrationToken}}</div>
 		</div>
+		<hr>
+	</div>
+	<div class="admin-action">
+		<h3>Add Record:</h3>
+		<div class="row form-row">
+			<label class="col-md-6 record-label">Player:</label>
+			<div class="col-md-6">
+				<div class="dropdown-wrapper record-input">
+					<select class="form-control record-player-select" data-placeholder="player"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-6 record-label">Map:</label>
+			<div class="col-md-6">
+				<div class="dropdown-wrapper record-input">
+					<select class="form-control token-player-select" data-placeholder="player"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-6 record-label">Time:</label>
+			<div class="col-md-6">
+				<input class="form-control text-input record-input">
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-6 record-label">Verification:</label>
+			<div class="col-md-6">
+				<input class="form-control text-input record-input">
+			</div>
+		</div>
+		<!-- <div>
+			Add Record for
+			<div class="dropdown-wrapper player-dropdown">
+				<select class="form-control token-player-select" data-placeholder="player"></select>
+			</div>
+			on map
+			<div class="dropdown-wrapper player-dropdown">
+				<select class="form-control token-player-select" data-placeholder="player"></select>
+			</div>
+		</div>
+		<div>
+			With a time of
+			<input type="text" class="form-control form-input time-input" placeholder="time">
+			with verification
+			<input type="text" class="form-control form-input link-input" placeholder="verification">
+		</div> -->
 	</div>
 </div>

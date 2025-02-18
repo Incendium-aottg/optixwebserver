@@ -16,6 +16,7 @@ export class AdminComponent implements AfterViewInit {
 	players: Player[] | null = null;
 	playerDropdown: Choices | null = null;
 	roleDropdown: Choices | null = null;
+	recordPlayerDropdown: Choices | null = null;
 
 	generatingToken = false;
 	registrationToken = '';
@@ -27,11 +28,12 @@ export class AdminComponent implements AfterViewInit {
 		}
 		this.recordsService.getPlayers().subscribe(res => {
 			this.playerDropdown?.setChoices((res as Player[]).map(player => ({value: player.id, label: player.name!})))
+			this.recordPlayerDropdown?.setChoices((res as Player[]).map(player => ({value: player.id, label: player.name!})))
 		})
 	}
 
 	ngAfterViewInit(): void {
-		this.playerDropdown = new Choices(document.querySelector('.player-select')!, {
+		this.playerDropdown = new Choices(document.querySelector('.token-player-select')!, {
 			fuseOptions: {
 				threshold: 0.1
 			},
@@ -39,7 +41,7 @@ export class AdminComponent implements AfterViewInit {
 			searchFields: ['label'],
 			searchResultLimit: -1
 		});
-		this.roleDropdown = new Choices(document.querySelector('.role-select')!, {
+		this.roleDropdown = new Choices(document.querySelector('.token-role-select')!, {
 			choices: [
 				{label: Role.User, value: Role.User},
 				{label: Role.Mod, value: Role.Mod}
@@ -51,6 +53,14 @@ export class AdminComponent implements AfterViewInit {
 			searchFields: ['label'],
 			searchResultLimit: -1,
 			shouldSort: false
+		});
+		this.recordPlayerDropdown = new Choices(document.querySelector('.record-player-select')!, {
+			fuseOptions: {
+				threshold: 0.1
+			},
+			itemSelectText: '',
+			searchFields: ['label'],
+			searchResultLimit: -1
 		});
 	}
 
@@ -74,5 +84,9 @@ export class AdminComponent implements AfterViewInit {
 				this.generatingToken = false;
 			}
 		});
+	}
+
+	isAdmin() {
+		return [Role.Admin].includes(localStorage.getItem('role') as Role)
 	}
 }

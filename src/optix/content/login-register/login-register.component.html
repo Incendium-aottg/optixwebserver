@@ -1,0 +1,76 @@
+<div class="login-register-wrapper">
+	<div>
+		<ng-container [ngTemplateOutlet]="isLoginPage() ? loginTitle : isRegisterPage() ? registerTitle : resetTitle"></ng-container>
+		<ng-template #loginTitle>
+			<div class="title-wrapper">
+				<h1>Login</h1>
+			</div>
+		</ng-template>
+		<ng-template #registerTitle>
+			<div class="title-wrapper">
+				<h1>Register</h1>
+			</div>
+		</ng-template>
+		<ng-template #resetTitle>
+			<div class="title-wrapper">
+				<h1>Change Password</h1>
+				<p class="subtitle">DM Incendium for a Registration Token if you forgot your password</p>
+			</div>
+		</ng-template>
+		<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+			<div class="row form-row">
+				<label class="col-md-5">Username:</label>
+				<div class="col-md-7">
+					<input #usernameInput class="form-control" formControlName="username"
+						[ngClass]="{'error-input' : loginForm.controls['username'].errors && loginForm.controls['username'].touched}">
+				</div>
+			</div>
+			<div class="row form-row">
+				<label class="col-md-5">{{isLoginPage() ? "Password:" : "New Password:"}}</label>
+				<div class="col-md-7">
+					<input class="form-control" type="password" formControlName="password"
+						[ngClass]="{'error-input' : loginForm.controls['password'].errors && loginForm.controls['password'].touched}">
+				</div>
+			</div>
+			<div *ngIf="!isLoginPage()">
+				<div class="row form-row">
+					<label class="col-md-5">Confirm Password:</label>
+					<div class="col-md-7">
+						<input class="form-control" type="password" formControlName="confirmPassword"
+							[ngClass]="{'error-input' : loginForm.errors && loginForm.controls['confirmPassword'].touched}">
+					</div>
+				</div>
+				<div class="row form-row">
+					<label class="col-md-5">Registration Token:</label>
+					<div class="col-md-7">
+						<input class="form-control" formControlName="registrationToken"
+							[ngClass]="{'error-input' : loginForm.controls['registrationToken'].errors && loginForm.controls['registrationToken'].touched}">
+					</div>
+				</div>
+			</div>
+			<div class="form-control-errors">
+				<div class="error-text" *ngIf="!loginForm.valid">{{getFormError()}}</div>
+			</div>
+			<ng-container [ngTemplateOutlet]="isLoginPage() ? loginButtons : isRegisterPage() ? registerButtons : resetButtons"></ng-container>
+			<ng-template #loginButtons>
+				<div class="buttons">
+					<button type="submit" [disabled]="!loginForm.valid || submitted" class="btn btn-primary form-button">Login</button>
+					<button [routerLink]="['/login/register']" type="button" class="btn btn-secondary form-button">No Account? Register!</button>
+					<button [routerLink]="['/login/reset']" type="button" class="btn btn-secondary form-button">Forgot Password</button>
+				</div>
+			</ng-template>
+			<ng-template #registerButtons>
+				<div class="buttons">
+					<button type="submit" [disabled]="!loginForm.valid || submitted" class="btn btn-primary form-button">Register</button>
+					<button [routerLink]="['/login']" type="button" class="btn btn-secondary form-button">Already registered? Login!</button>
+				</div>
+			</ng-template>
+			<ng-template #resetButtons>
+				<div class="buttons">
+					<button type="submit" [disabled]="!loginForm.valid || submitted" class="btn btn-primary form-button">Change Password</button>
+					<button [routerLink]="['/login']" type="button" class="btn btn-secondary form-button">Back</button>
+				</div>
+			</ng-template>
+		</form>
+	</div>
+</div>

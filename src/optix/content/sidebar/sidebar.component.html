@@ -33,8 +33,31 @@
 				<h2>Optix Bot Maps</h2>
 			</div>
 		</a>
+		<div *ngIf="isModOrAdmin()">
+			<span class="divider"></span>
+			<a [routerLink]="['/admin']" (click)="closeSidebar()">
+				<div class="link">
+					<h2>Admin</h2>
+				</div>
+			</a>
+		</div>
 	</div>
 	<div class="footer">
+		<div class="spacer"></div>
+		<div *ngIf="isLoggedIn(); else logoutButton">
+			<a [routerLink]="['/login']" (click)="closeSidebar()">
+				<div class="link">
+					<h2>Login / Register</h2>
+				</div>
+			</a>
+		</div>
+		<ng-template #logoutButton>
+			<a (click)="closeSidebar()">
+				<div class="link" (click)="logout()">
+					<h2>Logout</h2>
+				</div>
+			</a>
+		</ng-template>
 		<span class="divider"></span>
 		<div class="icons">
 			<div class="filler">

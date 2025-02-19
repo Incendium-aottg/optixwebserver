@@ -1,5 +1,4 @@
 import { Component} from '@angular/core';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { take } from 'rxjs';
 import { RunType } from 'src/optix/enums/run-type.enum';
 import { AuthorRecords } from '../../../models/author-records.model';

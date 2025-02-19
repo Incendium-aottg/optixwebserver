@@ -1,0 +1,58 @@
+<div class="container">
+	<div *ngIf="isAdmin()" class="admin-action">
+		<div>
+			Generate registration token for
+			<div class="dropdown-wrapper token-input player-dropdown">
+				<select class="form-control token-player-select" data-placeholder="player"></select>
+			</div>
+			with role
+			<div class="dropdown-wrapper token-input role-dropdown">
+				<select class="form-control token-role-select" data-placeholder="role"></select>
+			</div>
+		</div>
+		<button class="btn btn-primary token-button" [disabled]="!canGenerateToken()" (click)="generateToken()">Generate Token</button>
+		<div class="token-wrapper">
+			<div *ngIf="registrationToken">Generated registration token: {{registrationToken}}</div>
+		</div>
+		<hr>
+	</div>
+	<form [formGroup]="worldRecordForm" class="admin-action" (ngSubmit)="onSubmit()">
+		<h3>Add Record:</h3>
+		<div class="row form-row">
+			<label class="col-md-4 record-label">Player:</label>
+			<div class="col-md-8">
+				<div class="dropdown-wrapper record-input"
+				[ngClass]="{'error-dropdown' : worldRecordForm.controls['player'].errors && worldRecordForm.controls['player'].touched}">
+					<select class="form-control record-player-select" data-placeholder="player"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-4 record-label">Map:</label>
+			<div class="col-md-8">
+				<div class="dropdown-wrapper record-input"
+				[ngClass]="{'error-dropdown' : worldRecordForm.controls['map'].errors && worldRecordForm.controls['map'].touched}">
+					<select class="form-control record-map-select" data-placeholder="map"></select>
+				</div>
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-4 record-label">Time:</label>
+			<div class="col-md-8">
+				<input class="form-control text-input record-input" formControlName="time"
+				[ngClass]="{'error-input' : worldRecordForm.controls['time'].errors && worldRecordForm.controls['time'].touched}">
+			</div>
+		</div>
+		<div class="row form-row">
+			<label class="col-md-4 record-label">Verification:</label>
+			<div class="col-md-8">
+				<input class="form-control text-input record-input" formControlName="verification"
+				[ngClass]="{'error-input' : worldRecordForm.controls['verification'].errors && worldRecordForm.controls['verification'].touched}">
+			</div>
+		</div>
+		<div class="form-control-errors">
+			<div class="error-text" *ngIf="!worldRecordForm.valid">{{getFormError()}}</div>
+		</div>
+		<button class="btn btn-primary" [disabled]="!worldRecordForm.valid || addingWR" type="submit">Add World Record</button>
+	</form>
+</div>

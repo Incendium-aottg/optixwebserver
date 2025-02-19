@@ -1,27 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { OptixRoutingModule } from './optix-routing.module';
-import { OptixComponent } from './optix.component';
-import { SidebarComponent } from './content/sidebar/sidebar.component';
-import { HomeComponent } from './content/home/home.component';
-import { WorldRecordsComponent } from './content/world-records/world-records.component';
-import { ScoreboardComponent } from './content/scoreboard/scoreboard.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MapsComponent } from './content/maps/maps.component';
-import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
-import { NotFoundComponent } from './content/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
-import { FormsModule } from '@angular/forms';
-import { BotRecordsComponent } from './content/bot-server/bot-records/bot-records.component';
-import { RecordTablePageComponent } from './content/components/record-table-page/record-table-page.component';
 import { BotMapsComponent } from './content/bot-server/bot-maps/bot-maps.component';
-import { SafePipe } from './pipes/safe.pipe';
-import { MapDetailsComponent } from './content/map-details/map-details.component';
+import { BotRecordsComponent } from './content/bot-server/bot-records/bot-records.component';
 import { MapRecordTableComponent } from './content/components/map-record-table/map-record-table.component';
+import { RecordTablePageComponent } from './content/components/record-table-page/record-table-page.component';
+import { HomeComponent } from './content/home/home.component';
+import { LoginRegisterComponent } from './content/login-register/login-register.component';
+import { MapDetailsComponent } from './content/map-details/map-details.component';
+import { MapsComponent } from './content/maps/maps.component';
+import { NotFoundComponent } from './content/not-found/not-found.component';
+import { ScoreboardComponent } from './content/scoreboard/scoreboard.component';
+import { SidebarComponent } from './content/sidebar/sidebar.component';
+import { WorldRecordsComponent } from './content/world-records/world-records.component';
+import { OptixComponent } from './optix.component';
+import { OptixRoutingModule } from './optix-routing.module';
+import { SafePipe } from './pipes/safe.pipe';
+import { AdminComponent } from './content/admin/admin.component';
 
 @NgModule({
 	declarations: [
@@ -36,8 +36,10 @@ import { MapRecordTableComponent } from './content/components/map-record-table/m
 		RecordTablePageComponent,
 		BotMapsComponent,
 		SafePipe,
+		LoginRegisterComponent,
 		MapDetailsComponent,
 		MapRecordTableComponent,
+  AdminComponent,
 	],
 	imports: [
 		BrowserAnimationsModule,
@@ -48,6 +50,7 @@ import { MapRecordTableComponent } from './content/components/map-record-table/m
 		NgbModalModule,
 		NgbModule,
 		OptixRoutingModule,
+		ReactiveFormsModule,
 		ToastrModule.forRoot({
 			timeOut: 1500,
 			maxOpened: 1,

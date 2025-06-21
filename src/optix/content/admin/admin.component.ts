@@ -179,7 +179,7 @@ export class AdminComponent implements AfterViewInit {
 		return [Role.Admin].includes(localStorage.getItem('role') as Role)
 	}
 
-	onSubmit(formDirective: FormGroupDirective) {
+	onSubmit() {
 		this.addingWR = true;
 
 		this.recordsService.addRecord({
@@ -193,8 +193,8 @@ export class AdminComponent implements AfterViewInit {
 			next: () => {
 				this.toastr.success("Record added successfully!");
 				this.addingWR = false;
-				this.worldRecordForm.reset();
-				formDirective.resetForm();
+				this.worldRecordForm.get('time')?.reset()
+				this.worldRecordForm.get('verification')?.reset()
 			},
 			   error: (err) => {
 				this.toastr.error(err.error);

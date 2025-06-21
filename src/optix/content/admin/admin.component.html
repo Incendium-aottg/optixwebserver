@@ -16,7 +16,7 @@
 		</div>
 		<hr>
 	</div>
-	<form [formGroup]="worldRecordForm" class="admin-action" (ngSubmit)="onSubmit()">
+	<form [formGroup]="worldRecordForm" class="admin-action" (ngSubmit)="onSubmit(formDirective)" #formDirective="ngForm">
 		<h3>Add Record:</h3>
 		<div class="row form-row">
 			<label class="col-md-4 record-label">Player:</label>

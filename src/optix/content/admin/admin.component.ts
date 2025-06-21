@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Choices from 'choices.js';
 import { ToastrService } from 'ngx-toastr';
@@ -179,7 +179,7 @@ export class AdminComponent implements AfterViewInit {
 		return [Role.Admin].includes(localStorage.getItem('role') as Role)
 	}
 
-	onSubmit() {
+	onSubmit(formDirective: FormGroupDirective) {
 		this.addingWR = true;
 
 		this.recordsService.addRecord({
@@ -193,6 +193,8 @@ export class AdminComponent implements AfterViewInit {
 			next: () => {
 				this.toastr.success("Record added successfully!");
 				this.addingWR = false;
+				this.worldRecordForm.reset();
+				formDirective.resetForm();
 			},
 			   error: (err) => {
 				this.toastr.error(err.error);

@@ -26,7 +26,7 @@ export class AdminComponent implements AfterViewInit {
 	public worldRecordForm: FormGroup = new FormGroup({
 		player: new FormControl('', [Validators.required]),
 		map: new FormControl('', [Validators.required]),
-		time: new FormControl('', [Validators.required, Validators.pattern(/^-?\d+[.]\d{2}$/)]),
+		time: new FormControl('', [Validators.required, Validators.pattern(/^-?\d+[.]\d{1,2}$/)]),
 		verification: new FormControl('', [Validators.required]),
 	});
 	addingWR = false;

@@ -60,27 +60,33 @@ export class AdminComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit(): void {
-		this.playerDropdown = new Choices(document.querySelector('.token-player-select')!, {
-			fuseOptions: {
-				threshold: 0.1
-			},
-			itemSelectText: '',
-			searchFields: ['label'],
-			searchResultLimit: -1
-		});
-		this.roleDropdown = new Choices(document.querySelector('.token-role-select')!, {
-			choices: [
-				{label: Role.User, value: Role.User},
-				{label: Role.Mod, value: Role.Mod}
-			],
-			fuseOptions: {
-				threshold: 0.1
-			},
-			itemSelectText: '',
-			searchFields: ['label'],
-			searchResultLimit: -1,
-			shouldSort: false
-		});
+		let tokenPlayerSelect = document.querySelector('.token-player-select');
+		if (tokenPlayerSelect) {
+			this.playerDropdown = new Choices(tokenPlayerSelect, {
+				fuseOptions: {
+					threshold: 0.1
+				},
+				itemSelectText: '',
+				searchFields: ['label'],
+				searchResultLimit: -1
+			});
+		}
+		let tokenRoleSelect = document.querySelector('.token-role-select');
+		if (tokenRoleSelect) {
+			this.roleDropdown = new Choices(tokenRoleSelect, {
+				choices: [
+					{label: Role.User, value: Role.User},
+					{label: Role.Mod, value: Role.Mod}
+				],
+				fuseOptions: {
+					threshold: 0.1
+				},
+				itemSelectText: '',
+				searchFields: ['label'],
+				searchResultLimit: -1,
+				shouldSort: false
+			});
+		}
 		this.recordPlayerDropdown = new Choices(document.querySelector('.record-player-select')!, {
 			fuseOptions: {
 				threshold: 0.1
